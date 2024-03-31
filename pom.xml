@@ -13,7 +13,6 @@
         <maven.compiler.target>20</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>20</java.version>
-        <testSourceDirectory>src/main/test/java/java/de/tinf</testSourceDirectory>
     </properties>
     <dependencies>
         <dependency>
