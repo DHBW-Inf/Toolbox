@@ -5,27 +5,26 @@ on:
     branches: [ "main" ]
 
 jobs:
-  Test:
-    uses: habetuz/TinfInfoUtils/.github/workflows/test.yml@main
   Release:
     runs-on: ubuntu-latest
     permissions:
       contents: write
       
     steps:
+      - name: Run Tests 
+        uses: habetuz/TinfInfoUtils/.github/workflows/test.yml@main
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Read release information
-        uses: pietrobolcato/action-read-yaml@1.0.0
-        id: release_configuration
-        with:
-          config: ${{ github.workspace }}/version.yaml
       - name: Get next version
         id: next_version
         uses: thenativeweb/get-next-version@main
         with:
             prefix: 'v'
+      - name: Show the next version
+        run: |
+          echo ${{ steps.next_version.outputs.version }}
+          echo ${{ steps.next_version.outputs.hasNextVersion }}
       - name: Zip source
         uses: vimtor/action-zip@v1.2
         with:
