@@ -36,6 +36,6 @@ jobs:
         uses: ncipollo/release-action@v1
         if: ${{ steps.next_version.outputs.hasNextVersion == true }}
         with:
-          artifacts: "release.zip"
+          artifacts: "tinfUtils.zip"
           bodyFile: "release.md"
           tag: ${{ steps.next_version.outputs.version }}
