@@ -19,4 +19,16 @@ jobs:
         id: next_version
         uses: thenativeweb/get-next-version@main
         with:
-            prefix: 'v' # optional, defaults to ''
+            prefix: 'v'
+      - name: Zip source
+        uses: montudor/action-zip@v1
+        if: ${{ steps.next_version.outputs.hasNextVersion }}
+        with:
+          args: zip -qq -r ${{ github.workspace }}/src.zip ${{ github.workspace }}/src/main/java
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        if: ${{ steps.next_version.outputs.hasNextVersion }}
+        with:
+          artifacts: "src.zp"
+          bodyFile: "release.md"
+          tag: ${{ steps.next_version.outputs.version }}
