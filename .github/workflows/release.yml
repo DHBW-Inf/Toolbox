@@ -1,0 +1,12 @@
+name: Release
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  Release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
