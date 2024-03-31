@@ -28,13 +28,13 @@ jobs:
           echo ${{ steps.next_version.outputs.hasNextVersion }}
       - name: Zip source
         uses: vimtor/action-zip@v1.2
-        if: steps.next_version.outputs.hasNextVersion == true
+        if: steps.next_version.outputs.hasNextVersion == 'true'
         with:
           files: src/main/java/
           dest: tinfUtils.zip
       - name: Create Release
         uses: ncipollo/release-action@v1
-        if: steps.next_version.outputs.hasNextVersion == true
+        if: steps.next_version.outputs.hasNextVersion == 'true'
         with:
           artifacts: "tinfUtils.zip"
           bodyFile: "release.md"
