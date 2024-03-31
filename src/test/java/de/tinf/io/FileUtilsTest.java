@@ -1,22 +1,22 @@
 package de.tinf.io;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
 
 class FileUtilsTest {
 
-    @org.junit.jupiter.api.BeforeEach
+    @BeforeEach
     void setUp() {
     }
 
-    @org.junit.jupiter.api.AfterEach
+    @AfterEach
     void tearDown() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void read() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void readExceptionFree() {
     }
 }
