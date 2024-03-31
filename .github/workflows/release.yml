@@ -23,14 +23,14 @@ jobs:
         with:
             prefix: 'v'
       - name: Zip source
-        uses: montudor/action-zip@v1
-        if: ${{ steps.next_version.outputs.hasNextVersion }}
+        uses: vimtor/action-zip@v1.2
         with:
-          args: zip -qq -r ${{ github.workspace }}/src.zip ${{ github.workspace }}/src/main/java
+          files: src/main/java/
+          dest: release.zip
       - name: Create Release
         uses: ncipollo/release-action@v1
         if: ${{ steps.next_version.outputs.hasNextVersion }}
         with:
-          artifacts: "src.zp"
+          artifacts: "release.zip"
           bodyFile: "release.md"
           tag: ${{ steps.next_version.outputs.version }}
