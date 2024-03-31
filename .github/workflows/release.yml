@@ -31,7 +31,7 @@ jobs:
         if: steps.next_version.outputs.hasNextVersion
         with:
           files: src/main/java/
-          dest: release.zip
+          dest: tinfUtils.zip
       - name: Create Release
         uses: ncipollo/release-action@v1
         if: steps.next_version.outputs.hasNextVersion
