@@ -27,6 +27,8 @@ jobs:
         java-version: '20'
         distribution: 'temurin'
         cache: maven
+    - name: Print directory
+      run: ls
     - name: Run tests
-      run: mvn test -B
+      run: mvn test -B -f pom.xml
     
