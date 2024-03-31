@@ -5,6 +5,8 @@ on:
     branches: [ "main" ]
 
 jobs:
+  Test:
+    uses: habetuz/TinfInfoUtils/.github/workflows/test.yml@main
   Release:
     runs-on: ubuntu-latest
 
