@@ -1,9 +1,7 @@
 package de.tinf.io;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
@@ -29,10 +27,11 @@ public class FileUtils {
     /**
      * Reads the specified file and returns its contents as a string.
      *
-     * @param path                 the path to the file to be read
-     * @param propagateExceptions  whether exceptions should be handled or propagated
+     * @param path                the path to the file to be read
+     * @param propagateExceptions whether exceptions should be handled or propagated
      * @return the contents of the file as a string, or null in case of an exception
-     * @throws IOException if an I/O error occurs reading from the file or a malformed or unmappable byte sequence is read
+     * @throws IOException if an I/O error occurs reading from the file or a
+     *                     malformed or unmappable byte sequence is read
      */
     public static String read(String path, boolean propagateExceptions) throws IOException {
         try {
@@ -65,14 +64,15 @@ public class FileUtils {
     /**
      * Writes the specified contents to the specified file.
      *
-     * @param content              the content to be written
-     * @param path                 the path to the file
-     * @param append               whether the content should be appended to the file
-     * @param propagateExceptions  whether exceptions should be handled or propagated
+     * @param content             the content to be written
+     * @param path                the path to the file
+     * @param append              whether the content should be appended to the file
+     * @param propagateExceptions whether exceptions should be handled or propagated
      * @return true if writing was successful, false otherwise
      * @throws IOException if an I/O error occurs writing to the file
      */
-    public static boolean write(String content, String path, boolean append, boolean propagateExceptions) throws IOException {
+    public static boolean write(String content, String path, boolean append, boolean propagateExceptions)
+            throws IOException {
         try {
             createFile(path, true);
 
@@ -104,7 +104,8 @@ public class FileUtils {
     }
 
     /**
-     * Creates a file at the specified path. If the file already exists it gets cleared.
+     * Creates a file at the specified path. If the file already exists it gets
+     * cleared.
      *
      * @param path the path to the file
      * @return true if the file was created successfully, false otherwise
@@ -118,10 +119,11 @@ public class FileUtils {
     }
 
     /**
-     * Creates a file at the specified path. If the file already exists it gets cleared.
+     * Creates a file at the specified path. If the file already exists it gets
+     * cleared.
      *
-     * @param path                 the path to the file
-     * @param propagateExceptions  whether exceptions should be handled or propagated
+     * @param path                the path to the file
+     * @param propagateExceptions whether exceptions should be handled or propagated
      * @return true if the file was created successfully, false otherwise
      * @throws IOException if an I/O error occurs creating the file
      */
@@ -149,26 +151,28 @@ public class FileUtils {
      * Deletes a file or directory at the specified path.
      *
      * @param path the path of the file or directory to be deleted
-     * @return true if the file or directory is successfully deleted, false otherwise
-     * @throws RuntimeException if an IOException occurs while deleting the file or directory
+     * @return true if the file or directory is successfully deleted, false
+     *         otherwise
+     * @throws RuntimeException if an IOException occurs while deleting the file or
+     *                          directory
      */
     public static boolean delete(String path) {
         try {
             return delete(path, false);
-        } catch(IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-
-
     /**
      * Deletes a file or directory at the specified path.
      *
-     * @param path the path of the file or directory to be deleted
+     * @param path                the path of the file or directory to be deleted
      * @param propagateExceptions whether exceptions should be propagated or not
-     * @return true if the file or directory is successfully deleted, false otherwise
-     * @throws IOException if an I/O error occurs while deleting the file or directory
+     * @return true if the file or directory is successfully deleted, false
+     *         otherwise
+     * @throws IOException if an I/O error occurs while deleting the file or
+     *                     directory
      */
     public static boolean delete(String path, boolean propagateExceptions) throws IOException {
         if (!exists(path)) {
@@ -181,19 +185,20 @@ public class FileUtils {
                 for (String subFile : file.toFile().list()) {
                     if (!delete(Path.of(file.toString(), subFile).toString(), true)) {
                         return false;
-                    };
+                    }
+                    ;
                 }
             }
 
             Files.deleteIfExists(file);
             return true;
-        } catch(IOException e) {
+        } catch (IOException e) {
             if (propagateExceptions) {
                 throw e;
             } else {
                 return false;
             }
         }
-        
+
     }
 }
