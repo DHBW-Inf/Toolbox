@@ -1,2 +1,3 @@
 # TinfInfoUtils
-Util library for our programming class.
+
+Util Klassen für die Programmieren Klausur.
