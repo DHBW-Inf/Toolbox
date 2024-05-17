@@ -2,4 +2,4 @@
 
 ## Is this a breaking change?
 
-Fixes:
+Resolves:
