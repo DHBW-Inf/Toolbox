@@ -7,8 +7,9 @@ This repository contains utilites for our upcoming programming exam.
 - [x] *`FileUtils`*: Utilities for reading and writing files.
 - [ ] *`ArrayUtils`*: Utilities for working with arrays.
 - [ ] *`ConsoleUtils`*: Utilities for printing and reading to and from the console.
+- [ ] *`SwingUtils`*: Pre made components and utilities for working with swing.
 
-## How to get started
+## How to use the utilities
 
 Every release contains a zip file with the source code. To use the utils just copy the source code into your exam project.
 
