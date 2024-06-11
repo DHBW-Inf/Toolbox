@@ -1,5 +1,9 @@
 package de.tinf.io;
 
+/**
+ * The ConsoleANSICode enum represents the ANSI escape codes for console text formatting and colors.
+ * Each enum constant represents a specific ANSI escape code.
+ */
 public enum ConsoleANSICode {
     COLOR_OFF("\u001B[0m"),
     FG_BLACK("\u001B[30m"),
@@ -48,18 +52,32 @@ public enum ConsoleANSICode {
     DIM_OFF("\u001B[22m"),
     UNDERLINE_ON("\u001B[4m"),
     UNDERLINE_OFF("\u001B[24m");
-    
 
     private String code;
 
+    /**
+     * Constructs a ConsoleANSICode enum constant with the specified ANSI escape code.
+     *
+     * @param code the ANSI escape code
+     */
     ConsoleANSICode(String code) {
         this.code = code;
     }
 
+    /**
+     * Returns the ANSI escape code associated with this enum constant.
+     *
+     * @return the ANSI escape code
+     */
     public String getCode() {
         return code;
     }
 
+    /**
+     * Returns a string representation of the ANSI escape code associated with this enum constant.
+     *
+     * @return a string representation of the ANSI escape code
+     */
     @Override
     public String toString() {
         return code;
