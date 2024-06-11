@@ -1,15 +1,18 @@
 package de.tinf.io;
 
-import de.tinf.function.Function3;
+import java.util.Scanner;
+
 import de.tinf.typeExtension.StringExtensions;
 
 public class ConsoleUtils {
     // TODO: Support primitive types.
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     /**
      * Print an array to the system standard out. {@code .toString()} is called on each element.
-     * @param <T> The type of the array to print.
-     * @param array The array to print.
+     * @param <T> the type of the array to print.
+     * @param array the array to print.
      */
     public static <T> void printArray(T[] array) {
         ConsoleUtils.printArray(array, (element, index) -> element.toString() + " ");
@@ -17,9 +20,9 @@ public class ConsoleUtils {
 
     /**
      * Print an array to the system standard out.
-     * @param <T> The type of the array to print.
-     * @param array The array to print.
-     * @param formatter The formatter used to format each element when printing.
+     * @param <T> the type of the array to print.
+     * @param array the array to print.
+     * @param formatter the formatter used to format each element when printing.
      */
     public static <T> void printArray(T[] array, ArrayFormattable<T> formatter) {
         System.out
@@ -42,8 +45,8 @@ public class ConsoleUtils {
 
     /**
      * Print a 2D array to the system standard out. The outer array is used as y-axis and the inner array is used as x-axis. {@code .toString()} is called on each element. If the passed array is empty nothing gets printed.
-     * @param <T> The type of the array to print.
-     * @param array The array to print.
+     * @param <T> the type of the array to print.
+     * @param array the array to print.
      */
     public static <T> void print2DArray(T[][] array) {
         ConsoleUtils.print2DArray(array, (element, x, y) -> " " + element.toString());
@@ -51,9 +54,9 @@ public class ConsoleUtils {
 
     /**
      * Print a 2D array to the system standard out. The outer array is used as y-axis and the inner array is used as x-axis. If the passed array is empty nothing gets printed.
-     * @param <T> The type of the array to print.
-     * @param array The array to print.
-     * @param formatter The formatter used to format each element when printing.
+     * @param <T> the type of the array to print.
+     * @param array the array to print.
+     * @param formatter the formatter used to format each element when printing.
      */
     public static <T> void print2DArray(T[][] array, Array2DFormattable<T> formatter) {
         if (array.length == 0 || array[0].length == 0) {
@@ -108,6 +111,15 @@ public class ConsoleUtils {
 
         System.out.println(out);
 
+    }
+
+    /**
+     * Returns the global scanner object used for reading input from the console.
+     *
+     * @return the scanner object
+     */
+    public static Scanner getScanner() {
+        return scanner;
     }
 
     
