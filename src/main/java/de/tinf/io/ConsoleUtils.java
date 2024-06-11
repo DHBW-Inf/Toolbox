@@ -1,18 +1,27 @@
 package de.tinf.io;
 
-import de.tinf.function.Function2;
 import de.tinf.function.Function3;
 import de.tinf.typeExtension.StringExtensions;
 
 public class ConsoleUtils {
     // TODO: Support primitive types.
-    // TODO: Change formatters to custom interfaces.
 
+    /**
+     * Print an array to the system standard out. {@code .toString()} is called on each element.
+     * @param <T> The type of the array to print.
+     * @param array The array to print.
+     */
     public static <T> void printArray(T[] array) {
         ConsoleUtils.printArray(array, (element, index) -> element.toString() + " ");
     }
 
-    public static <T> void printArray(T[] array, Function2<T, Integer, String> formatter) {
+    /**
+     * Print an array to the system standard out.
+     * @param <T> The type of the array to print.
+     * @param array The array to print.
+     * @param formatter The formatter used to format each element when printing.
+     */
+    public static <T> void printArray(T[] array, ArrayFormattable<T> formatter) {
         System.out
                 .println(String.format("%1$sPrinting array of length %2$s%3$s%5$d%4$s%1$s.%2$s", ConsoleANSICode.DIM_ON,
                         ConsoleANSICode.DIM_OFF, ConsoleANSICode.FG_YELLOW, ConsoleANSICode.COLOR_OFF, array.length));
@@ -25,17 +34,28 @@ public class ConsoleUtils {
 
         for (int i = 0; i < array.length; i++) {
             output += String.format("%1$s%3$" + lengthDigits + "d %2$s%4$s\n", ConsoleANSICode.DIM_ON,
-                    ConsoleANSICode.DIM_OFF, i, formatter.apply(array[i], i));
+                    ConsoleANSICode.DIM_OFF, i, formatter.format(array[i], i));
         }
 
         System.out.println(output);
     }
 
+    /**
+     * Print a 2D array to the system standard out. The outer array is used as y-axis and the inner array is used as x-axis. {@code .toString()} is called on each element. If the passed array is empty nothing gets printed.
+     * @param <T> The type of the array to print.
+     * @param array The array to print.
+     */
     public static <T> void print2DArray(T[][] array) {
         ConsoleUtils.print2DArray(array, (element, x, y) -> " " + element.toString());
     }
 
-    public static <T> void print2DArray(T[][] array, Function3<T, Integer, Integer, String> formatter) {
+    /**
+     * Print a 2D array to the system standard out. The outer array is used as y-axis and the inner array is used as x-axis. If the passed array is empty nothing gets printed.
+     * @param <T> The type of the array to print.
+     * @param array The array to print.
+     * @param formatter The formatter used to format each element when printing.
+     */
+    public static <T> void print2DArray(T[][] array, Array2DFormattable<T> formatter) {
         if (array.length == 0 || array[0].length == 0) {
             // TODO: Document this behavior.
             return;
@@ -49,7 +69,7 @@ public class ConsoleUtils {
             }
 
             for (int x = 0; x < array[y].length; x++) {
-                final int length = StringExtensions.removeANSICodes(formatter.apply(array[y][x], x, y)).length();
+                final int length = StringExtensions.removeANSICodes(formatter.format(array[y][x], x, y)).length();
                 if (length > maxLength) {
                     maxLength = length;
                 }
@@ -77,9 +97,10 @@ public class ConsoleUtils {
             out += String.format("%1$s%3$" + yDigits + "d %2$s", ConsoleANSICode.DIM_ON, ConsoleANSICode.DIM_OFF, y);
 
             for (int x = 0; x < array[y].length; x++) {
-                final String formatted = formatter.apply(array[y][x], x, y);
+                final String formatted = formatter.format(array[y][x], x, y);
                 final String withoutANSIEscapeCodes = StringExtensions.removeANSICodes(formatted);
-                out += String.format("%" + (elementLength + formatted.length() - withoutANSIEscapeCodes.length()) + "s", formatted);
+                out += String.format("%" + (elementLength + formatted.length() - withoutANSIEscapeCodes.length()) + "s",
+                        formatted);
             }
 
             out += "\n";
@@ -89,4 +110,39 @@ public class ConsoleUtils {
 
     }
 
+    
+    /**
+     * A functional interface for formatting elements of an array.
+     *
+     * @param <T> the type of elements in the array
+     */
+    @FunctionalInterface
+    public interface ArrayFormattable<T> {
+        /**
+         * Formats the specified element at the given index.
+         *
+         * @param element the element to format
+         * @param index   the index of the element in the array
+         * @return the formatted string representation of the element
+         */
+        public String format(T element, int index);
+    }
+
+    /**
+     * A functional interface for formatting elements in a 2D array.
+     *
+     * @param <T> the type of elements in the array
+     */
+    @FunctionalInterface
+    public interface Array2DFormattable<T> {
+        /**
+         * Formats the specified element at the given coordinates.
+         *
+         * @param element the element to format
+         * @param x       the x-coordinate of the element
+         * @param y       the y-coordinate of the element
+         * @return the formatted string representation of the element
+         */
+        public String format(T element, int x, int y);
+    }
 }
