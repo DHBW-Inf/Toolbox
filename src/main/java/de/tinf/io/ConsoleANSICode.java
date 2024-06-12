@@ -82,4 +82,51 @@ public enum ConsoleANSICode {
     public String toString() {
         return code;
     }
+
+    /**
+     * Applies ANSI codes to the given text to change its appearance.
+     *
+     * @param text The text to be painted.
+     * @param codes The ANSI codes to be applied to the text.
+     * @return The painted text with the applied ANSI codes.
+     */
+    public static String paint(String text, ConsoleANSICode... codes) {
+        StringBuilder sb = new StringBuilder();
+        for (ConsoleANSICode code : codes) {
+            sb.append(code.getCode());
+        }
+        sb.append(text);
+        sb.append(COLOR_OFF.getCode());
+        return sb.toString();
+    }
+
+    /**
+     * Applies the ANSI escape code for bold formatting to the given text.
+     *
+     * @param text the text to be formatted
+     * @return the formatted text with bold formatting
+     */
+    public static String bold(String text) {
+        return BOLD_ON + text + BOLD_OFF;
+    }
+
+    /**
+     * Applies the ANSI escape code for dimming the text and returns the modified text.
+     *
+     * @param text the text to be dimmed
+     * @return the dimmed text
+     */
+    public static String dim(String text) {
+        return DIM_ON + text + DIM_OFF;
+    }
+
+    /**
+     * Applies underline formatting to the given text.
+     *
+     * @param text The text to be underlined.
+     * @return The underlined text.
+     */
+    public static String underline(String text) {
+        return UNDERLINE_ON + text + UNDERLINE_OFF;
+    }
 }
