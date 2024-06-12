@@ -60,7 +60,6 @@ public class ConsoleUtils {
      */
     public static <T> void print2DArray(T[][] array, Array2DFormattable<T> formatter) {
         if (array.length == 0 || array[0].length == 0) {
-            // TODO: Document this behavior.
             return;
         }
 
