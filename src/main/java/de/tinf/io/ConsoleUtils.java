@@ -20,6 +20,12 @@ public class ConsoleUtils {
 
     /**
      * Print an array to the system standard out.
+     * <pre>
+     * {@code
+     * ConsoleUtils.printArray(array, (element, index) -> {
+     *   return element + " at " + index;
+     * });
+     * </pre>
      * @param <T> the type of the array to print.
      * @param array the array to print.
      * @param formatter the formatter used to format each element when printing.
@@ -54,6 +60,17 @@ public class ConsoleUtils {
 
     /**
      * Print a 2D array to the system standard out. The outer array is used as y-axis and the inner array is used as x-axis. If the passed array is empty nothing gets printed.
+     * <pre>
+     * {@code
+     * ConsoleUtils.print2DArray(array, (element, x, y) -> {
+     *   if (y % 2 == 0) {
+     *     return " " + ConsoleANSICode.paint(element.toString(), ConsoleANSICode.BG_BLUE);
+     *   } else {
+     *     return " " + ConsoleANSICode.paint(element.toString(), ConsoleANSICode.BG_CYAN);
+     *   }
+     * });
+     * </pre>
+     * 
      * @param <T> the type of the array to print.
      * @param array the array to print.
      * @param formatter the formatter used to format each element when printing.
@@ -115,7 +132,7 @@ public class ConsoleUtils {
     /**
      * Returns the global scanner object used for reading input from the console.
      *
-     * @return the scanner object
+     * @return the scanner object.
      */
     public static Scanner getScanner() {
         return scanner;
@@ -125,7 +142,7 @@ public class ConsoleUtils {
     /**
      * A functional interface for formatting elements of an array.
      *
-     * @param <T> the type of elements in the array
+     * @param <T> the type of elements in the array.
      */
     @FunctionalInterface
     public interface ArrayFormattable<T> {
@@ -142,17 +159,17 @@ public class ConsoleUtils {
     /**
      * A functional interface for formatting elements in a 2D array.
      *
-     * @param <T> the type of elements in the array
+     * @param <T> the type of elements in the array.
      */
     @FunctionalInterface
     public interface Array2DFormattable<T> {
         /**
          * Formats the specified element at the given coordinates.
          *
-         * @param element the element to format
-         * @param x       the x-coordinate of the element
-         * @param y       the y-coordinate of the element
-         * @return the formatted string representation of the element
+         * @param element the element to format.
+         * @param x       the x-coordinate of the element.
+         * @param y       the y-coordinate of the element.
+         * @return the formatted string representation of the element.
          */
         public String format(T element, int x, int y);
     }
