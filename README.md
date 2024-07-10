@@ -5,8 +5,8 @@ This repository contains utilites for our upcoming programming exam.
 ## Features
 
 - [x] *`FileUtils`*: Utilities for reading and writing files.
-- [ ] *`ArrayUtils`*: Utilities for working with arrays.
-- [ ] *`ConsoleUtils`*: Utilities for printing and reading to and from the console.
+- [x] *`ArrayUtils`*: Utilities for working with arrays.
+- [x] *`ConsoleUtils`*: Utilities for printing and reading to and from the console.
 - [ ] *`SwingUtils`*: Pre made components and utilities for working with swing.
 
 ## How to use the utilities
