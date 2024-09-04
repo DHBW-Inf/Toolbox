@@ -1,6 +1,6 @@
-# TinfInfoUtils
+# CodingUtils
 
-This repository contains utilites for our upcoming programming exam.
+This repository contains utilites for the DHBW Karlsruhe programming exam of the first two semesters.
 
 ## Features
 
