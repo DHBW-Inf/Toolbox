@@ -1,10 +1,10 @@
-package de.tinf.typeExtension;
+package de.codingUtils.typeExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import de.tinf.io.ConsoleANSICode;
+import de.codingUtils.io.ConsoleANSICode;
 
 public class StringExtensionsTest {
     @Test

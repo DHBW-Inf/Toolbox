@@ -1,8 +1,8 @@
-package de.tinf.io;
+package de.codingUtils.io;
 
 import java.util.Scanner;
 
-import de.tinf.typeExtension.StringExtensions;
+import de.codingUtils.typeExtension.StringExtensions;
 
 public class ConsoleUtils {
     // TODO: Support primitive types.

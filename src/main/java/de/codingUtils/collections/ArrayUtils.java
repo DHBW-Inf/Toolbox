@@ -1,4 +1,4 @@
-package de.tinf.collections;
+package de.codingUtils.collections;
 
 import java.util.Arrays;
 

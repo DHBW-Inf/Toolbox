@@ -1,4 +1,4 @@
-package de.tinf.io;
+package de.codingUtils.io;
 
 import org.junit.jupiter.api.Test;
 

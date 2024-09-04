@@ -1,4 +1,4 @@
-package de.tinf.io;
+package de.codingUtils.io;
 
 /**
  * The ConsoleANSICode enum represents the ANSI escape codes for console text formatting and colors.

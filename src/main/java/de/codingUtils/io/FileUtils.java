@@ -1,4 +1,4 @@
-package de.tinf.io;
+package de.codingUtils.io;
 
 import java.io.IOException;
 import java.nio.file.Files;

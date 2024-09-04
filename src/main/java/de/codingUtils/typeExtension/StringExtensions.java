@@ -1,4 +1,4 @@
-package de.tinf.typeExtension;
+package de.codingUtils.typeExtension;
 
 public class StringExtensions {
     public static String removeANSICodes(String text) {

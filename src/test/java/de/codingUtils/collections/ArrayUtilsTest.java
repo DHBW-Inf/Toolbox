@@ -1,4 +1,4 @@
-package de.tinf.collections;
+package de.codingUtils.collections;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
