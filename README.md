@@ -1,9 +1,11 @@
+
 # Toolbox
 
 <img width="355"  alt="Screenshot 2024-04-09 at 00 14 00" src="https://github.com/matteokosina/java-toolbox/assets/74454734/5a380b1b-5f20-499b-8dc9-9a481addec81" style="display: block; margin-left: auto; margin-right: auto;">
 
 
-> This repository contains utilites for our upcoming programming exam.
+> This repository contains utilites for the DHBW Karlsruhe programming exam of the first two semesters.
+
 
 ## Features
 
