@@ -5,11 +5,16 @@ on:
     branches: [ "main" ]
 
 jobs:
-  Test:
-    uses: matteokosina/action-sandbox/.github/workflows/test.yml@main
+  QA:
+    uses: DHBW-Inf/Toolbox/.github/workflows/test.yml@main
   Generate:
-    needs: Test
-    uses: matteokosina/action-sandbox/.github/workflows/javadoc.yml@main
+    needs: QA
+    uses: DHBW-Inf/Toolbox/.github/workflows/javadoc.yml@main
+  QA:
+    uses: DHBW-Inf/Toolbox/.github/workflows/test.yml@main
+  Generate:
+    needs: QA
+    uses: DHBW-Inf/Toolbox/.github/workflows/javadoc.yml@main
   Release:
     runs-on: ubuntu-latest
     needs: Generate

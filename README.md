@@ -4,6 +4,10 @@
 
 > This repository contains utilites for the DHBW Karlsruhe programming exam of the first two semesters.
 
+<a href="#"><kbd> <br> Visit Documentation <br> </kbd></a>
+
+
+
 ## Features
 
 - [x] *`FileUtils`*: Utilities for reading and writing files.
@@ -15,7 +19,7 @@
 
 Every release contains a zip file with the source code. To use the utils just copy the source code into your exam project.
 
-All utils are dependency free.
+All utils are dependency free.  
 
 ## How to contribute
 
@@ -28,4 +32,6 @@ This repository is using [thenativeweb/get-next-version](https://github.com/then
 - `fix:` – used for bug fixes, results in a new patch version (e.g. from `1.2.3` to `1.2.4`)
 - `feat:` – used for introducing new features, results in a new minor version (e.g. from `1.2.3` to `1.3.0`)
 - `feat!:` – used for breaking changes, results in a new major version (e.g. from `1.2.3` to `2.0.0`)
+
+
 
