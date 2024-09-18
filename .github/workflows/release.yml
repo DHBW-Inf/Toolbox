@@ -9,7 +9,9 @@ jobs:
     uses: matteokosina/action-sandbox/.github/workflows/test.yml@main
   Call_JavaDoc_Workflow:
     needs: Test
-    uses: matteokosina/action-sandbox/.github/workflows/javadoc.yml@main
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/javadoc.yml@main
   Release:
     runs-on: ubuntu-latest
     needs: Call_JavaDoc_Workflow
