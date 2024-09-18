@@ -7,6 +7,11 @@ on:
 jobs:
   Test:
     uses: matteokosina/action-sandbox/.github/workflows/test.yml@main
+  Generate:
+    needs: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/javadoc.yml@main
   Deploy:
     needs: Test
     runs-on: ubuntu-latest
