@@ -14,7 +14,7 @@ on:
   workflow_call:
 
 jobs:
-  Unit-Test:
+  Unit-Tests:
 
     runs-on: ubuntu-latest
 
