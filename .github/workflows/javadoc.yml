@@ -6,6 +6,8 @@ on:
 jobs:
   Deploy-JavaDoc:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 20
