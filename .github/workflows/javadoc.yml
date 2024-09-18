@@ -34,7 +34,7 @@ jobs:
         git config --global user.email 'github-actions@github.com'
         git checkout --orphan gh-pages
         git rm -rf .
-        cp -r target/site/apidocs/* .
+        cp -r ./docs/* .
         git add .
         git commit -m "Deploy JavaDoc to GitHub Pages"
         git push --force --set-upstream origin gh-pages

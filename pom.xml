@@ -45,6 +45,9 @@
                     <goals>
                       <goal>javadoc</goal>
                     </goals>
+                    <configuration>
+                        <destDir>${project.build.directory}/docs</destDir>
+                      </configuration>
                   </execution>
                 </executions>
               </plugin>
