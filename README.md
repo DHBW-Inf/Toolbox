@@ -1,6 +1,8 @@
-# CodingUtils
+# ☕️ Java Toolbox
 
-This repository contains utilites for the DHBW Karlsruhe programming exam of the first two semesters.
+<img width="300" alt="toolbox" src="https://github.com/user-attachments/assets/d6bb0f76-08cd-4bfb-8059-6739f8bc7048">
+
+> This repository contains utilites for the DHBW Karlsruhe programming exam of the first two semesters.
 
 ## Features
 
@@ -17,7 +19,7 @@ All utils are dependency free.
 
 ## How to contribute
 
-Open a new Issue with a feature you want to implement. Fork the project, make your changes and open a pull request linking to your issue. Make sure your feature does not need any external dependencies and is covered by unit tests.
+Open a new Issue with a feature you want to implement. Fork the project, make your changes and open a pull request linking to your issue. Make sure your feature does not need any external dependencies and is covered by unit tests. Finally add the topic of your feature(s) to the [list of features](https://github.com/DHBW-Inf/Toolbox#features) in this README and mark it as done as soon as this topic is completely covered.
 
 ## Automatic versioning
 
