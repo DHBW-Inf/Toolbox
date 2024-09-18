@@ -5,10 +5,10 @@ on:
     branches: [ "main" ]
 
 jobs:
-  Test:
+  QA:
     uses: matteokosina/action-sandbox/.github/workflows/test.yml@main
   Generate:
-    needs: Test
+    needs: QA
     uses: matteokosina/action-sandbox/.github/workflows/javadoc.yml@main
   Release:
     runs-on: ubuntu-latest
