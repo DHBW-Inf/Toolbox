@@ -7,7 +7,7 @@ on:
 jobs:
   Test:
     uses: matteokosina/action-sandbox/.github/workflows/test.yml@main
-  Call_JavaDoc_Workflow:
+  Deploy:
     needs: Test
     runs-on: ubuntu-latest
     steps:
