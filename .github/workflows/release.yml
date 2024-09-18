@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: ./.github/workflows/javadoc.yml@main
   Deploy:
-    needs: Test
+    needs: Generate
     runs-on: ubuntu-latest
     steps:
       - uses: ./.github/workflows/javadoc.yml@main
