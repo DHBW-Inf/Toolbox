@@ -29,3 +29,5 @@ This repository is using [thenativeweb/get-next-version](https://github.com/then
 - `feat:` – used for introducing new features, results in a new minor version (e.g. from `1.2.3` to `1.3.0`)
 - `feat!:` – used for breaking changes, results in a new major version (e.g. from `1.2.3` to `2.0.0`)
 
+
+
