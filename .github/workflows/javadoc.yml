@@ -1,0 +1,30 @@
+on:
+  pull_request:
+    branches: [ "main" ]
+  workflow_call:
+    
+jobs:
+  Deploy-JavaDoc:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 20
+      uses: actions/setup-java@v3
+      with:
+        java-version: '20'
+        distribution: 'temurin'
+        cache: maven
+    - name: Generate JavaDoc
+      run: |
+        mvn javadoc:javadoc
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git checkout --orphan gh-pages
+        git rm -rf .
+        cp -r ./target/site/apidocs/* .
+        git add .
+        git commit -m "Deploy JavaDoc to GitHub Pages"
+        git push --force --set-upstream origin gh-pages
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
