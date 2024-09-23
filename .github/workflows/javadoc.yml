@@ -6,6 +6,8 @@ on:
 jobs:
   Deploy-JavaDoc:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
     - uses: actions/checkout@v3
@@ -18,6 +20,10 @@ jobs:
     - name: Generate JavaDoc
       run: |
         mvn javadoc:javadoc
+    - name: Deploy JavaDoc to GitHub Pages
+      env:
+        GH_PAT: ${{ secrets.GH_PAT }}
+      run: |
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
         git checkout --orphan gh-pages
@@ -25,6 +31,4 @@ jobs:
         cp -r ./target/site/apidocs/* .
         git add .
         git commit -m "Deploy JavaDoc to GitHub Pages"
-        git push --force --set-upstream origin gh-pages
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        git push --force --set-upstream https://x-access-token:${GH_PAT}@github.com/${{ github.repository }} gh-pages
