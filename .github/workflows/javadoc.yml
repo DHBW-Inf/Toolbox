@@ -6,6 +6,8 @@ on:
 jobs:
   Deploy-JavaDoc:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
     - uses: actions/checkout@v3
@@ -26,5 +28,3 @@ jobs:
         git add .
         git commit -m "Deploy JavaDoc to GitHub Pages"
         git push --force --set-upstream origin gh-pages
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
