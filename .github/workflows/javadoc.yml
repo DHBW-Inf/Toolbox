@@ -31,4 +31,4 @@ jobs:
         cp -r ./target/site/apidocs/* .
         git add .
         git commit -m "Deploy JavaDoc to GitHub Pages"
-        git push --force --set-upstream https://x-access-token:${GH_PAT}@github.com/${{ github.repository }} gh-pages
+        git push --force --set-upstream origin gh-pages
