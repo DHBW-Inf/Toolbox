@@ -22,7 +22,7 @@ jobs:
         mvn javadoc:javadoc
     - name: Deploy JavaDoc to GitHub Pages
       env:
-        GH_PAT: ${{ secrets.GH_PAT }}
+        GITHUB_TOKEN: ${{ github.token }}
       run: |
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
