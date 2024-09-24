@@ -8,7 +8,8 @@ on:
     types: [published]
 
 permissions:
-  contents: write 
+  contents: write
+  pages: write
 
 jobs:
   build:
