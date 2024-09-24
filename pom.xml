@@ -45,6 +45,8 @@
                     <additionalparam>-Xdoclint:none</additionalparam>
                     <additionalOptions>-Xdoclint:none</additionalOptions>
                     <additionalJOption>-Xdoclint:none</additionalJOption>
+                    <source>20</source> <!-- The source version -->
+                    <target>20</target> <!-- The target version -->
                 </configuration>
                 <executions>
                   <execution>

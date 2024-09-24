@@ -15,6 +15,8 @@ jobs:
   Generate:
     needs: QA
     uses: DHBW-Inf/Toolbox/.github/workflows/javadoc.yml@main
+    needs: QA
+    uses: DHBW-Inf/Toolbox/.github/workflows/javadoc.yml@main
   Release:
     runs-on: ubuntu-latest
     needs: Generate
@@ -22,7 +24,7 @@ jobs:
       contents: write
       
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Get next version
