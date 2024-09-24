@@ -18,11 +18,12 @@ jobs:
   Release:
     runs-on: ubuntu-latest
     needs: Generate
+    needs: Generate
     permissions:
       contents: write
       
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Get next version
@@ -40,10 +41,12 @@ jobs:
         with:
           files: src/main/java/
           dest: Toolbox.zip
+          dest: Toolbox.zip
       - name: Create Release
         uses: ncipollo/release-action@v1
         if: steps.next_version.outputs.hasNextVersion == 'true'
         with:
+          artifacts: "Toolbox.zip"
           artifacts: "Toolbox.zip"
           bodyFile: "release.md"
           tag: ${{ steps.next_version.outputs.version }}
