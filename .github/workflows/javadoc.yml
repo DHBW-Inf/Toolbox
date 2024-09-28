@@ -43,10 +43,12 @@ jobs:
           user_token: ${{ secrets.SERVICE_USER }}
         run: echo $user_token
 
-      # Step 6: Deploy Javadoc to GitHub Pages
+      - name: Configure git with github-acions user
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
       - name: Deploy Javadoc to GitHub Pages
-        env:
-          user_token: ${{ secrets.SERVICE_USER }}
         if: ${{ success() }}
         uses: peaceiris/actions-gh-pages@v4
         with:
