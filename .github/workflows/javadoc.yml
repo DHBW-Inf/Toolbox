@@ -3,6 +3,7 @@ on:
     branches:
       - main
   pull_request_target:
+  workflow_call:
   release:
     types: [published]
 
