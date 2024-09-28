@@ -22,14 +22,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          path: code
-
-      - name: Checkout documentation
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          path: documentation
-          ref: gh-pages
 
       - name: Get next version
         id: next_version
@@ -45,8 +37,16 @@ jobs:
         uses: vimtor/action-zip@v1.2
         if: steps.next_version.outputs.hasNextVersion == 'true'
         with:
-          files: code/src/main/java/
+          files: src/main/java/
           dest: Toolbox.zip
+
+      - name: Checkout documentation
+        uses: actions/checkout@v4
+        if: steps.next_version.outputs.hasNextVersion == 'true'
+        with:
+          fetch-depth: 0
+          path: documentation
+          ref: gh-pages
 
       - name: Zip documentation
         uses: vimtor/action-zip@v1.2
