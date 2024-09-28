@@ -25,7 +25,9 @@ public class ConsoleUtils {
      * ConsoleUtils.printArray(array, (element, index) -> {
      *   return element + " at " + index;
      * });
+     * }
      * </pre>
+     * 
      * @param <T> the type of the array to print.
      * @param array the array to print.
      * @param formatter the formatter used to format each element when printing.
@@ -69,6 +71,7 @@ public class ConsoleUtils {
      *     return " " + ConsoleANSICode.paint(element.toString(), ConsoleANSICode.BG_CYAN);
      *   }
      * });
+     * }
      * </pre>
      * 
      * @param <T> the type of the array to print.
