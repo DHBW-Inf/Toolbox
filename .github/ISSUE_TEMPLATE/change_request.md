@@ -1,17 +1,20 @@
 ---
-name: Feature request
-about: Suggest an util this project needs
+name: Change request
+about: Suggest changes to the project
 title: ''
 labels: enhancement
 assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
+## Are the changes related to a problem? Please describe
+
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 
-**Describe the util you'd like**
+## Describe the changes you'd like
+
 A clear and concise description of what you want to happen.
 
-**Additional context**
+## Additional context
+
 Add any other context or screenshots about the feature request here.
