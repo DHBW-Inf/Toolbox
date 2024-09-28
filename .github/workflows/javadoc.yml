@@ -41,6 +41,12 @@ jobs:
     - name: Build and generate Javadoc
       run: mvn clean package javadoc:javadoc
 
+    - name: test token
+      env: 
+        user_token: ${{ secrets.SERVICE_USER }}
+      run: echo $user_token
+
+
     # Step 6: Deploy Javadoc to GitHub Pages
     - name: Deploy Javadoc to GitHub Pages
       env: 
