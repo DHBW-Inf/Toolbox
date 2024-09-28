@@ -2,17 +2,21 @@ name: Release
 
 on:
   push:
-    branches: [ "main" ]
+    branches: 
+      - main
 
 jobs:
-  Test:
+  QA:
     uses: DHBW-Inf/Toolbox/.github/workflows/test.yml@main
+  Generate:
+    needs: QA
+    uses: DHBW-Inf/Toolbox/.github/workflows/javadoc.yml@main
   Release:
     runs-on: ubuntu-latest
-    needs: Test
+    needs: Generate
     permissions:
       contents: write
-      
+
     steps:
       - name: Checkout sourcecode
         uses: actions/checkout@v4
@@ -31,7 +35,7 @@ jobs:
         id: next_version
         uses: thenativeweb/get-next-version@main
         with:
-            prefix: 'v'
+          prefix: 'v'
       - name: Show the next version
         run: |
           echo ${{ steps.next_version.outputs.version }}
