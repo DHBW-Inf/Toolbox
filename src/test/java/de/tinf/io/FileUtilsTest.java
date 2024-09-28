@@ -30,17 +30,9 @@ class FileUtilsTest {
     void testReadFileWithException() {
         String path = "path/to/nonexistent/file.txt";
 
-        assertThrows(IOException.class, () -> {
-            FileUtils.read(path, true);
+        assertThrows(RuntimeException.class, () -> {
+            FileUtils.read(path);
         });
-    }
-
-    @Test
-    void testReadFileWithoutExceptionWhenNotPropagating() throws IOException {
-        String path = "path/to/nonexistent/file.txt";
-
-        assertFalse(FileUtils.exists(path));
-        assertNull(FileUtils.read(path, false));
     }
 
     @Test
@@ -48,9 +40,9 @@ class FileUtilsTest {
         String content = "This is the content to be written.";
         String path = "temp/output.txt";
 
-        boolean success = FileUtils.write(content, path, false, true);
-
-        assertTrue(success);
+        assertDoesNotThrow(() -> {
+            FileUtils.write(content, path, false);
+        });
 
         String actualContent = FileUtils.read(path);
         assertEquals(content, actualContent);
@@ -78,9 +70,10 @@ class FileUtilsTest {
     void testCreateFile() throws IOException {
         String path = "temp/newFile.txt";
 
-        boolean created = FileUtils.createFile(path, true);
+        assertDoesNotThrow(() -> {
+            FileUtils.createFile(path);
+        });
 
-        assertTrue(created);
         assertTrue(FileUtils.exists(path));
         assertTrue(new File(path).isFile());
     }
@@ -89,9 +82,10 @@ class FileUtilsTest {
     void testCreateNestedFile() {
         String path = "temp/nested/newFile.txt";
 
-        boolean created = FileUtils.createFile(path);
+        assertDoesNotThrow(() -> {
+            FileUtils.createFile(path);
+        });
 
-        assertTrue(created);
         assertTrue(FileUtils.exists(path));
         assertTrue(new File(path).isFile());
     }
@@ -102,9 +96,10 @@ class FileUtilsTest {
 
         FileUtils.createFile(path);
 
-        boolean deleted = FileUtils.delete(path);
+        assertDoesNotThrow(() -> {
+            FileUtils.delete(path);
+        });
 
-        assertTrue(deleted);
         assertFalse(FileUtils.exists(path));
     }
 
@@ -116,9 +111,10 @@ class FileUtilsTest {
         FileUtils.createFile(path + "dir2/test.txt");
         FileUtils.createFile(path + "dir3/test.txt");
 
-        boolean deleted = FileUtils.delete(path);
+        assertDoesNotThrow(() -> {
+            FileUtils.delete(path);
+        });
 
-        assertTrue(deleted);
         assertFalse(FileUtils.exists(path));
     }
 
@@ -126,6 +122,8 @@ class FileUtilsTest {
     void testDeleteNonExistingDirectory() {
         String path = "path/to/nonexistent/directory/";
 
-        assertTrue(FileUtils.delete(path));
+        assertDoesNotThrow(() -> {
+            FileUtils.delete(path);
+        });
     }
 }
