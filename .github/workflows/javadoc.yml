@@ -1,13 +1,9 @@
 on:
   pull_request:
-    branches: [ "main" ]
-  push:
     branches:
       - main
-      - javadoc
   workflow_call:
-  release:
-    types: [published]
+
 permissions:
   contents: write
   pages: write
