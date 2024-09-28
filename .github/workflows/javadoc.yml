@@ -36,16 +36,6 @@ jobs:
       - name: Build and generate Javadoc
         run: mvn clean package javadoc:javadoc
 
-      - name: test token
-        env:
-          user_token: ${{ secrets.SERVICE_USER }}
-        run: echo $user_token
-
-      - name: Configure git with github-acions user
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          
       - name: Deploy Javadoc to GitHub Pages
         if: ${{ success() }}
         uses: peaceiris/actions-gh-pages@v4
@@ -56,3 +46,5 @@ jobs:
           # destination_dir: javadoc # Optional: Specify a subdirectory for your docs
           # If you want to keep the current content and just update the javadocs folder, set keep_files: true
           keep_files: true
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
