@@ -1,5 +1,6 @@
+name: Deploy Java documentation
+
 on:
-  pull_request:
   workflow_call:
 
 permissions:
