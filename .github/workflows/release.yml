@@ -14,9 +14,19 @@ jobs:
       contents: write
       
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout sourcecode
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          path: code
+
+      - name: Checkout documentation
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          path: documentation
+          ref: gh-pages
+
       - name: Get next version
         id: next_version
         uses: thenativeweb/get-next-version@main
@@ -26,16 +36,25 @@ jobs:
         run: |
           echo ${{ steps.next_version.outputs.version }}
           echo ${{ steps.next_version.outputs.hasNextVersion }}
+
       - name: Zip source
         uses: vimtor/action-zip@v1.2
         if: steps.next_version.outputs.hasNextVersion == 'true'
         with:
-          files: src/main/java/
+          files: code/src/main/java/
           dest: Toolbox.zip
+
+      - name: Zip documentation
+        uses: vimtor/action-zip@v1.2
+        if: steps.next_version.outputs.hasNextVersion == 'true'
+        with:
+          files: documentation/
+          dest: Documentation.zip
+        
       - name: Create Release
         uses: ncipollo/release-action@v1
         if: steps.next_version.outputs.hasNextVersion == 'true'
         with:
-          artifacts: "Toolbox.zip"
+          artifacts: "Toolbox.zip, Documentation.zip"
           bodyFile: "release.md"
           tag: ${{ steps.next_version.outputs.version }}
