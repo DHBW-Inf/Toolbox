@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - javadoc
   workflow_call:
   release:
     types: [published]
