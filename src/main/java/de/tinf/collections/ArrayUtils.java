@@ -8,10 +8,11 @@ import java.util.Arrays;
 public class ArrayUtils {
 
     /**
-     * Converts an array of objects to an array of primitive values.
+     * Converts an array of {@link Byte} objects to an array of primitive
+     * {@code byte}s.
      *
-     * @param array the array of objects to be converted
-     * @return an array of primitive values corresponding to the input array
+     * @param array the array of {@link Byte} objects to be converted
+     * @return an array of primitive {@code byte}s corresponding to the input array
      */
     public static byte[] toPrimitiveArray(Byte[] array) {
         byte[] casted = new byte[array.length];
@@ -23,10 +24,12 @@ public class ArrayUtils {
     }
 
     /**
-     * Converts an array of objects to an array of primitive values.
+     * Converts an array of {@link Short} objects to an array of primitive
+     * {@code short} values.
      *
-     * @param array the array of objects to be converted
-     * @return an array of primitive values corresponding to the input array
+     * @param array the array of {@link Short} objects to be converted
+     * @return an array of primitive {@code short} values corresponding to the input
+     *         array
      */
     public static short[] toPrimitiveArray(Short[] array) {
         short[] casted = new short[array.length];
@@ -38,30 +41,35 @@ public class ArrayUtils {
     }
 
     /**
-     * Converts an array of objects to an array of primitive values.
+     * Converts an array of {@link Integer} objects to an array of primitive
+     * {@code int}s.
      *
-     * @param array the array of objects to be converted
-     * @return an array of primitive values corresponding to the input array
+     * @param array the array of {@link Integer} objects to be converted
+     * @return an array of primitive {@code int}s corresponding to the input array
      */
     public static int[] toPrimitiveArray(Integer[] array) {
         return Arrays.stream(array).mapToInt(Integer::intValue).toArray();
     }
 
     /**
-     * Converts an array of objects to an array of primitive values.
+     * Converts an array of {@link Long} objects to an array of primitive
+     * {@code long} values.
      *
-     * @param array the array of objects to be converted
-     * @return an array of primitive values corresponding to the input array
+     * @param array the array of {@link Long} objects to be converted
+     * @return an array of primitive {@code long} values corresponding to the input
+     *         array
      */
     public static long[] toPrimitiveArray(Long[] array) {
         return Arrays.stream(array).mapToLong(Long::longValue).toArray();
     }
 
     /**
-     * Converts an array of objects to an array of primitive values.
+     * Converts an array of {@link Float} objects to an array of primitive
+     * {@code float} values.
      *
-     * @param array the array of objects to be converted
-     * @return an array of primitive values corresponding to the input array
+     * @param array the array of {@link Float} objects to be converted
+     * @return an array of primitive {@code float} values corresponding to the input
+     *         array
      */
     public static float[] toPrimitiveArray(Float[] array) {
         float[] casted = new float[array.length];
@@ -73,20 +81,24 @@ public class ArrayUtils {
     }
 
     /**
-     * Converts an array of objects to an array of primitive values.
+     * Converts an array of {@link Double} objects to an array of primitive
+     * {@code double} values.
      *
-     * @param array the array of objects to be converted
-     * @return an array of primitive values corresponding to the input array
+     * @param array the array of {@link Double} objects to be converted
+     * @return an array of primitive {@code double} values corresponding to the
+     *         input array
      */
     public static double[] toPrimitiveArray(Double[] array) {
         return Arrays.stream(array).mapToDouble(Double::doubleValue).toArray();
     }
 
     /**
-     * Converts an array of objects to an array of primitive values.
+     * Converts an array of {@link Character} objects to an array of primitive
+     * {@code char} values.
      *
-     * @param array the array of objects to be converted
-     * @return an array of primitive values corresponding to the input array
+     * @param array the array of {@link Character} objects to be converted
+     * @return an array of primitive {@code char} values corresponding to the input
+     *         array
      */
     public static char[] toPrimitiveArray(Character[] array) {
         char[] casted = new char[array.length];
@@ -98,10 +110,12 @@ public class ArrayUtils {
     }
 
     /**
-     * Converts an array of objects to an array of primitive values.
+     * Converts an array of {@link Boolean} objects to an array of primitive
+     * {@code boolean} values.
      *
-     * @param array the array of objects to be converted
-     * @return an array of primitive values corresponding to the input array
+     * @param array the array of {@link Boolean} objects to be converted
+     * @return an array of primitive {@code boolean} values corresponding to the
+     *         input array
      */
     public static boolean[] toPrimitiveArray(Boolean[] array) {
         boolean[] casted = new boolean[array.length];
@@ -113,10 +127,11 @@ public class ArrayUtils {
     }
 
     /**
-     * Converts a primitive type array to an array of objects.
-     *
-     * @param array the primitive type array to be converted
-     * @return an array of objects corresponding to the input array
+     * Converts an array of primitive {@code byte}s to an array of {@link Byte}
+     * objects.
+     * 
+     * @param array the array of {@code byte}s to be converted
+     * @return an array of {@link Byte} objects
      */
     public static Byte[] toObjectArray(byte[] array) {
         Byte[] casted = new Byte[array.length];
@@ -128,10 +143,11 @@ public class ArrayUtils {
     }
 
     /**
-     * Converts a primitive type array to an array of objects.
-     *
-     * @param array the primitive type array to be converted
-     * @return an array of objects corresponding to the input array
+     * Converts an array of primitive {@code short} values to an array of
+     * {@link Short} objects.
+     * 
+     * @param array the array of {@code short} values to be converted
+     * @return an array of {@link Short} objects
      */
     public static Short[] toObjectArray(short[] array) {
         Short[] casted = new Short[array.length];
@@ -143,30 +159,33 @@ public class ArrayUtils {
     }
 
     /**
-     * Converts a primitive type array to an array of objects.
-     *
-     * @param array the primitive type array to be converted
-     * @return an array of objects corresponding to the input array
+     * Converts an array of primitive {@code int}s to an array of {@link Integer}
+     * objects.
+     * 
+     * @param array the array of {@code int}s to be converted
+     * @return an array of {@link Integer} objects
      */
     public static Integer[] toObjectArray(int[] array) {
         return Arrays.stream(array).boxed().toArray(Integer[]::new);
     }
 
     /**
-     * Converts a primitive type array to an array of objects.
-     *
-     * @param array the primitive type array to be converted
-     * @return an array of objects corresponding to the input array
+     * Converts an array of primitive {@code long} values to an array of
+     * {@link Long} objects.
+     * 
+     * @param array the array of {@code long} values to be converted
+     * @return an array of {@link Long} objects
      */
     public static Long[] toObjectArray(long[] array) {
         return Arrays.stream(array).boxed().toArray(Long[]::new);
     }
 
     /**
-     * Converts a primitive type array to an array of objects.
-     *
-     * @param array the primitive type array to be converted
-     * @return an array of objects corresponding to the input array
+     * Converts an array of primitive {@code float}s to an array of {@link Float}
+     * objects.
+     * 
+     * @param array the array of {@code float}s to be converted
+     * @return an array of {@link Float} objects
      */
     public static Float[] toObjectArray(float[] array) {
         Float[] casted = new Float[array.length];
@@ -178,20 +197,22 @@ public class ArrayUtils {
     }
 
     /**
-     * Converts a primitive type array to an array of objects.
-     *
-     * @param array the primitive type array to be converted
-     * @return an array of objects corresponding to the input array
+     * Converts an array of primitive {@code double}s to an array of {@link Double}
+     * objects.
+     * 
+     * @param array the array of {@code double}s to be converted
+     * @return an array of {@link Double} objects
      */
     public static Double[] toObjectArray(double[] array) {
         return Arrays.stream(array).boxed().toArray(Double[]::new);
     }
 
     /**
-     * Converts a primitive type array to an array of objects.
-     *
-     * @param array the primitive type array to be converted
-     * @return an array of objects corresponding to the input array
+     * Converts an array of primitive {@code char}s to an array of {@link Character}
+     * objects.
+     * 
+     * @param array the array of {@code char}s to be converted
+     * @return an array of {@link Character} objects
      */
     public static Character[] toObjectArray(char[] array) {
         Character[] casted = new Character[array.length];
@@ -203,10 +224,11 @@ public class ArrayUtils {
     }
 
     /**
-     * Converts a primitive type array to an array of objects.
-     *
-     * @param array the primitive type array to be converted
-     * @return an array of objects corresponding to the input array
+     * Converts an array of primitive {@code boolean}s to an array of
+     * {@link Boolean} objects.
+     * 
+     * @param array the array of {@code boolean}s to be converted
+     * @return an array of {@link Boolean} objects
      */
     public static Boolean[] toObjectArray(boolean[] array) {
         Boolean[] casted = new Boolean[array.length];
