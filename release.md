@@ -1,3 +1,3 @@
-# File Utilities
+# Primitive types support for array utilities
 
-This update added many array utilities.
+This update adds primitive type support to array utilities.
