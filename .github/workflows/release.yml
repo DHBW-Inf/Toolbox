@@ -2,7 +2,8 @@ name: Release
 
 on:
   push:
-    branches: [ "main" ]
+    branches: 
+      - main
 
 jobs:
   QA:
@@ -15,30 +16,49 @@ jobs:
     needs: Generate
     permissions:
       contents: write
-      
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout sourcecode
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Get next version
         id: next_version
         uses: thenativeweb/get-next-version@main
         with:
-            prefix: 'v'
+          prefix: 'v'
       - name: Show the next version
         run: |
           echo ${{ steps.next_version.outputs.version }}
           echo ${{ steps.next_version.outputs.hasNextVersion }}
+
       - name: Zip source
         uses: vimtor/action-zip@v1.2
         if: steps.next_version.outputs.hasNextVersion == 'true'
         with:
           files: src/main/java/
           dest: Toolbox.zip
+
+      - name: Checkout documentation
+        uses: actions/checkout@v4
+        if: steps.next_version.outputs.hasNextVersion == 'true'
+        with:
+          fetch-depth: 0
+          path: documentation
+          ref: gh-pages
+
+      - name: Zip documentation
+        uses: vimtor/action-zip@v1.2
+        if: steps.next_version.outputs.hasNextVersion == 'true'
+        with:
+          files: documentation/
+          dest: Documentation.zip
+        
       - name: Create Release
         uses: ncipollo/release-action@v1
         if: steps.next_version.outputs.hasNextVersion == 'true'
         with:
-          artifacts: "Toolbox.zip"
+          artifacts: "Toolbox.zip, Documentation.zip"
           bodyFile: "release.md"
           tag: ${{ steps.next_version.outputs.version }}
