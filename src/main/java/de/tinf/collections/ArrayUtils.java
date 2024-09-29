@@ -224,8 +224,8 @@ public class ArrayUtils {
      * @param element the element to append
      * @return the modified array with the element appended
      */
-    public static byte[] Append(byte[] array, byte element) {
-        return toPrimitiveArray(Append(toObjectArray(array), element));
+    public static byte[] append(byte[] array, byte element) {
+        return toPrimitiveArray(append(toObjectArray(array), element));
     }
 
     /**
@@ -235,8 +235,8 @@ public class ArrayUtils {
      * @param element the element to append
      * @return the modified array with the element appended
      */
-    public static short[] Append(short[] array, short element) {
-        return toPrimitiveArray(Append(toObjectArray(array), element));
+    public static short[] append(short[] array, short element) {
+        return toPrimitiveArray(append(toObjectArray(array), element));
     }
 
     /**
@@ -246,8 +246,8 @@ public class ArrayUtils {
      * @param element the element to append
      * @return the modified array with the element appended
      */
-    public static int[] Append(int[] array, int element) {
-        return toPrimitiveArray(Append(toObjectArray(array), element));
+    public static int[] append(int[] array, int element) {
+        return toPrimitiveArray(append(toObjectArray(array), element));
     }
 
     /**
@@ -257,8 +257,8 @@ public class ArrayUtils {
      * @param element the element to append
      * @return the modified array with the element appended
      */
-    public static long[] Append(long[] array, long element) {
-        return toPrimitiveArray(Append(toObjectArray(array), element));
+    public static long[] append(long[] array, long element) {
+        return toPrimitiveArray(append(toObjectArray(array), element));
     }
 
     /**
@@ -268,8 +268,8 @@ public class ArrayUtils {
      * @param element the element to append
      * @return the modified array with the element appended
      */
-    public static float[] Append(float[] array, float element) {
-        return toPrimitiveArray(Append(toObjectArray(array), element));
+    public static float[] append(float[] array, float element) {
+        return toPrimitiveArray(append(toObjectArray(array), element));
     }
 
     /**
@@ -279,8 +279,8 @@ public class ArrayUtils {
      * @param element the element to append
      * @return the modified array with the element appended
      */
-    public static double[] Append(double[] array, double element) {
-        return toPrimitiveArray(Append(toObjectArray(array), element));
+    public static double[] append(double[] array, double element) {
+        return toPrimitiveArray(append(toObjectArray(array), element));
     }
 
     /**
@@ -290,8 +290,8 @@ public class ArrayUtils {
      * @param element the element to append
      * @return the modified array with the element appended
      */
-    public static char[] Append(char[] array, char element) {
-        return toPrimitiveArray(Append(toObjectArray(array), element));
+    public static char[] append(char[] array, char element) {
+        return toPrimitiveArray(append(toObjectArray(array), element));
     }
 
     /**
@@ -301,8 +301,8 @@ public class ArrayUtils {
      * @param element the element to append
      * @return the modified array with the element appended
      */
-    public static boolean[] Append(boolean[] array, boolean element) {
-        return toPrimitiveArray(Append(toObjectArray(array), element));
+    public static boolean[] append(boolean[] array, boolean element) {
+        return toPrimitiveArray(append(toObjectArray(array), element));
     }
 
     /**
@@ -313,7 +313,7 @@ public class ArrayUtils {
      * @param <T>     the type of the array and element
      * @return the modified array with the element appended
      */
-    public static <T> T[] Append(T[] array, T element) {
+    public static <T> T[] append(T[] array, T element) {
         array = Arrays.copyOf(array, array.length + 1);
         array[array.length - 1] = element;
 
@@ -329,8 +329,8 @@ public class ArrayUtils {
      * @return the modified array with the element inserted
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static byte[] Insert(byte[] array, byte element, int index) {
-        return toPrimitiveArray(Insert(toObjectArray(array), element, index));
+    public static byte[] insert(byte[] array, byte element, int index) {
+        return toPrimitiveArray(insert(toObjectArray(array), element, index));
     }
 
     /**
@@ -342,8 +342,8 @@ public class ArrayUtils {
      * @return the modified array with the element inserted
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static short[] Insert(short[] array, short element, int index) {
-        return toPrimitiveArray(Insert(toObjectArray(array), element, index));
+    public static short[] insert(short[] array, short element, int index) {
+        return toPrimitiveArray(insert(toObjectArray(array), element, index));
     }
 
     /**
@@ -355,8 +355,8 @@ public class ArrayUtils {
      * @return the modified array with the element inserted
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static int[] Insert(int[] array, int element, int index) {
-        return toPrimitiveArray(Insert(toObjectArray(array), element, index));
+    public static int[] insert(int[] array, int element, int index) {
+        return toPrimitiveArray(insert(toObjectArray(array), element, index));
     }
 
     /**
@@ -368,8 +368,8 @@ public class ArrayUtils {
      * @return the modified array with the element inserted
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static long[] Insert(long[] array, long element, int index) {
-        return toPrimitiveArray(Insert(toObjectArray(array), element, index));
+    public static long[] insert(long[] array, long element, int index) {
+        return toPrimitiveArray(insert(toObjectArray(array), element, index));
     }
 
     /**
@@ -381,8 +381,8 @@ public class ArrayUtils {
      * @return the modified array with the element inserted
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static float[] Insert(float[] array, float element, int index) {
-        return toPrimitiveArray(Insert(toObjectArray(array), element, index));
+    public static float[] insert(float[] array, float element, int index) {
+        return toPrimitiveArray(insert(toObjectArray(array), element, index));
     }
 
     /**
@@ -394,8 +394,8 @@ public class ArrayUtils {
      * @return the modified array with the element inserted
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static double[] Insert(double[] array, double element, int index) {
-        return toPrimitiveArray(Insert(toObjectArray(array), element, index));
+    public static double[] insert(double[] array, double element, int index) {
+        return toPrimitiveArray(insert(toObjectArray(array), element, index));
     }
 
     /**
@@ -407,8 +407,8 @@ public class ArrayUtils {
      * @return the modified array with the element inserted
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static char[] Insert(char[] array, char element, int index) {
-        return toPrimitiveArray(Insert(toObjectArray(array), element, index));
+    public static char[] insert(char[] array, char element, int index) {
+        return toPrimitiveArray(insert(toObjectArray(array), element, index));
     }
 
     /**
@@ -420,8 +420,8 @@ public class ArrayUtils {
      * @return the modified array with the element inserted
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static boolean[] Insert(boolean[] array, boolean element, int index) {
-        return toPrimitiveArray(Insert(toObjectArray(array), element, index));
+    public static boolean[] insert(boolean[] array, boolean element, int index) {
+        return toPrimitiveArray(insert(toObjectArray(array), element, index));
     }
 
     /**
@@ -434,7 +434,7 @@ public class ArrayUtils {
      * @return the modified array with the element inserted
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static <T> T[] Insert(T[] array, T element, int index) {
+    public static <T> T[] insert(T[] array, T element, int index) {
         if (index < 0 || index > array.length)
             throw new IndexOutOfBoundsException();
 
@@ -454,8 +454,8 @@ public class ArrayUtils {
      * @return the modified array with the element removed
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static byte[] Remove(byte[] array, int index) {
-        return toPrimitiveArray(Remove(toObjectArray(array), index));
+    public static byte[] remove(byte[] array, int index) {
+        return toPrimitiveArray(remove(toObjectArray(array), index));
     }
 
     /**
@@ -466,8 +466,8 @@ public class ArrayUtils {
      * @return the modified array with the element removed
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static short[] Remove(short[] array, int index) {
-        return toPrimitiveArray(Remove(toObjectArray(array), index));
+    public static short[] remove(short[] array, int index) {
+        return toPrimitiveArray(remove(toObjectArray(array), index));
     }
 
     /**
@@ -478,8 +478,8 @@ public class ArrayUtils {
      * @return the modified array with the element removed
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static int[] Remove(int[] array, int index) {
-        return toPrimitiveArray(Remove(toObjectArray(array), index));
+    public static int[] remove(int[] array, int index) {
+        return toPrimitiveArray(remove(toObjectArray(array), index));
     }
 
     /**
@@ -490,8 +490,8 @@ public class ArrayUtils {
      * @return the modified array with the element removed
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static long[] Remove(long[] array, int index) {
-        return toPrimitiveArray(Remove(toObjectArray(array), index));
+    public static long[] remove(long[] array, int index) {
+        return toPrimitiveArray(remove(toObjectArray(array), index));
     }
 
     /**
@@ -502,8 +502,8 @@ public class ArrayUtils {
      * @return the modified array with the element removed
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static float[] Remove(float[] array, int index) {
-        return toPrimitiveArray(Remove(toObjectArray(array), index));
+    public static float[] remove(float[] array, int index) {
+        return toPrimitiveArray(remove(toObjectArray(array), index));
     }
 
     /**
@@ -514,8 +514,8 @@ public class ArrayUtils {
      * @return the modified array with the element removed
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static double[] Remove(double[] array, int index) {
-        return toPrimitiveArray(Remove(toObjectArray(array), index));
+    public static double[] remove(double[] array, int index) {
+        return toPrimitiveArray(remove(toObjectArray(array), index));
     }
 
     /**
@@ -526,8 +526,8 @@ public class ArrayUtils {
      * @return the modified array with the element removed
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static char[] Remove(char[] array, int index) {
-        return toPrimitiveArray(Remove(toObjectArray(array), index));
+    public static char[] remove(char[] array, int index) {
+        return toPrimitiveArray(remove(toObjectArray(array), index));
     }
 
     /**
@@ -538,8 +538,8 @@ public class ArrayUtils {
      * @return the modified array with the element removed
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static boolean[] Remove(boolean[] array, int index) {
-        return toPrimitiveArray(Remove(toObjectArray(array), index));
+    public static boolean[] remove(boolean[] array, int index) {
+        return toPrimitiveArray(remove(toObjectArray(array), index));
     }
 
     /**
@@ -551,7 +551,7 @@ public class ArrayUtils {
      * @return the modified array with the element removed
      * @throws IndexOutOfBoundsException if the index is out of range
      */
-    public static <T> T[] Remove(T[] array, int index) {
+    public static <T> T[] remove(T[] array, int index) {
         if (index < 0 || index >= array.length)
             throw new IndexOutOfBoundsException();
 
@@ -570,8 +570,8 @@ public class ArrayUtils {
      * @param array2 the second array
      * @return the concatenated array
      */
-    public static byte[] Concatenate(byte[] array1, byte[] array2) {
-        return toPrimitiveArray(Concatenate(toObjectArray(array1), toObjectArray(array2)));
+    public static byte[] concatenate(byte[] array1, byte[] array2) {
+        return toPrimitiveArray(concatenate(toObjectArray(array1), toObjectArray(array2)));
     }
 
     /**
@@ -581,8 +581,8 @@ public class ArrayUtils {
      * @param array2 the second array
      * @return the concatenated array
      */
-    public static short[] Concatenate(short[] array1, short[] array2) {
-        return toPrimitiveArray(Concatenate(toObjectArray(array1), toObjectArray(array2)));
+    public static short[] concatenate(short[] array1, short[] array2) {
+        return toPrimitiveArray(concatenate(toObjectArray(array1), toObjectArray(array2)));
     }
 
     /**
@@ -592,8 +592,8 @@ public class ArrayUtils {
      * @param array2 the second array
      * @return the concatenated array
      */
-    public static int[] Concatenate(int[] array1, int[] array2) {
-        return toPrimitiveArray(Concatenate(toObjectArray(array1), toObjectArray(array2)));
+    public static int[] concatenate(int[] array1, int[] array2) {
+        return toPrimitiveArray(concatenate(toObjectArray(array1), toObjectArray(array2)));
     }
 
     /**
@@ -603,8 +603,8 @@ public class ArrayUtils {
      * @param array2 the second array
      * @return the concatenated array
      */
-    public static long[] Concatenate(long[] array1, long[] array2) {
-        return toPrimitiveArray(Concatenate(toObjectArray(array1), toObjectArray(array2)));
+    public static long[] concatenate(long[] array1, long[] array2) {
+        return toPrimitiveArray(concatenate(toObjectArray(array1), toObjectArray(array2)));
     }
 
     /**
@@ -614,8 +614,8 @@ public class ArrayUtils {
      * @param array2 the second array
      * @return the concatenated array
      */
-    public static float[] Concatenate(float[] array1, float[] array2) {
-        return toPrimitiveArray(Concatenate(toObjectArray(array1), toObjectArray(array2)));
+    public static float[] concatenate(float[] array1, float[] array2) {
+        return toPrimitiveArray(concatenate(toObjectArray(array1), toObjectArray(array2)));
     }
 
     /**
@@ -625,8 +625,8 @@ public class ArrayUtils {
      * @param array2 the second array
      * @return the concatenated array
      */
-    public static double[] Concatenate(double[] array1, double[] array2) {
-        return toPrimitiveArray(Concatenate(toObjectArray(array1), toObjectArray(array2)));
+    public static double[] concatenate(double[] array1, double[] array2) {
+        return toPrimitiveArray(concatenate(toObjectArray(array1), toObjectArray(array2)));
     }
 
     /**
@@ -636,8 +636,8 @@ public class ArrayUtils {
      * @param array2 the second array
      * @return the concatenated array
      */
-    public static char[] Concatenate(char[] array1, char[] array2) {
-        return toPrimitiveArray(Concatenate(toObjectArray(array1), toObjectArray(array2)));
+    public static char[] concatenate(char[] array1, char[] array2) {
+        return toPrimitiveArray(concatenate(toObjectArray(array1), toObjectArray(array2)));
     }
 
     /**
@@ -647,8 +647,8 @@ public class ArrayUtils {
      * @param array2 the second array
      * @return the concatenated array
      */
-    public static boolean[] Concatenate(boolean[] array1, boolean[] array2) {
-        return toPrimitiveArray(Concatenate(toObjectArray(array1), toObjectArray(array2)));
+    public static boolean[] concatenate(boolean[] array1, boolean[] array2) {
+        return toPrimitiveArray(concatenate(toObjectArray(array1), toObjectArray(array2)));
     }
 
     /**
@@ -659,12 +659,44 @@ public class ArrayUtils {
      * @param <T>    the type of the arrays
      * @return the concatenated array
      */
-    public static <T> T[] Concatenate(T[] array1, T[] array2) {
+    public static <T> T[] concatenate(T[] array1, T[] array2) {
         T[] concatenated = Arrays.copyOf(array1, array1.length + array2.length);
 
         System.arraycopy(array2, 0, concatenated, array1.length, array2.length);
 
         return concatenated;
+    }
+
+    public static byte[] reverse(byte[] array) {
+        return toPrimitiveArray(reverse(toObjectArray(array)));
+    }
+
+    public static short[] reverse(short[] array) {
+        return toPrimitiveArray(reverse(toObjectArray(array)));
+    }
+
+    public static int[] reverse(int[] array) {
+        return toPrimitiveArray(reverse(toObjectArray(array)));
+    }
+
+    public static long[] reverse(long[] array) {
+        return toPrimitiveArray(reverse(toObjectArray(array)));
+    }
+
+    public static float[] reverse(float[] array) {
+        return toPrimitiveArray(reverse(toObjectArray(array)));
+    }
+
+    public static double[] reverse(double[] array) {
+        return toPrimitiveArray(reverse(toObjectArray(array)));
+    }
+
+    public static char[] reverse(char[] array) {
+        return toPrimitiveArray(reverse(toObjectArray(array)));
+    }
+
+    public static boolean[] reverse(boolean[] array) {
+        return toPrimitiveArray(reverse(toObjectArray(array)));
     }
 
     /**
@@ -674,7 +706,7 @@ public class ArrayUtils {
      * @param <T>   the type of the array
      * @return the reversed array
      */
-    public static <T> T[] Reverse(T[] array) {
+    public static <T> T[] reverse(T[] array) {
         T[] reversed = Arrays.copyOf(array, array.length);
 
         for (int i = 0; i < reversed.length / 2; i++) {
