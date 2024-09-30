@@ -1,3 +1,3 @@
-# Read lines for file utils
+# Primitive type support to console utilities
 
-This updates adds the function `readLines` that takes a path to a file and returns its content as array of lines.
+This update adds support for primitive types to the console utilities.

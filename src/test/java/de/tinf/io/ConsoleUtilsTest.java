@@ -1,6 +1,7 @@
 package de.tinf.io;
 
 import org.junit.jupiter.api.Test;
+import java.util.Arrays;
 
 public class ConsoleUtilsTest {
     @Test
