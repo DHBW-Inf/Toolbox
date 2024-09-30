@@ -1,3 +1,3 @@
-# Fix append writing not working
+# Read lines for file utils
 
-`FileUtils.write(path, content, true)` throwing a StackOverflow exception is not fixed.
+This updates adds the function `readLines` that takes a path to a file and returns its content as array of lines.
