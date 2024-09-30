@@ -1,5 +1,3 @@
-# Primitive types support for array utilities
+# Fix append writing not working
 
-This update adds primitive type support to array utilities.
-
-Additionally all methods previously following a wrong naming convention (pascal case for static functions) now follow the java naming convention of camel case.
+`FileUtils.write(path, content, true)` throwing a StackOverflow exception is not fixed.
