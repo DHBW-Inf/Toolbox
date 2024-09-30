@@ -26,6 +26,22 @@ public class FileUtils {
     }
 
     /**
+     * Reads all lines from a file at the specified path and returns them as an
+     * array of strings.
+     *
+     * @param path the path to the file to be read
+     * @return an array of strings, each representing a line from the file
+     * @throws RuntimeException if an I/O error occurs reading from the file
+     */
+    public static String[] readLines(String path) {
+        try {
+            return Files.readAllLines(Path.of(path)).toArray(String[]::new);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
      * Writes the specified contents to the specified file.
      *
      * @param content the content to be written
@@ -33,10 +49,11 @@ public class FileUtils {
      * @param append  whether the content should be appended to the file
      * @throws RuntimeException if an I/O error occurs writing to the file
      */
-    public static void write(String content, String path, boolean append)
-            throws IOException {
+    public static void write(String content, String path, boolean append) {
         try {
-            createFile(path);
+            if (!exists(path)) {
+                createFile(path);
+            }
 
             if (append) {
                 Files.writeString(Path.of(path), content, StandardOpenOption.APPEND);
