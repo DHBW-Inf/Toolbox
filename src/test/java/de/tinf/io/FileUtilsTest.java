@@ -126,4 +126,17 @@ class FileUtilsTest {
             FileUtils.delete(path);
         });
     }
+
+    @Test
+    void testAppendWriteFile() {
+        String path = "temp/appendFile.txt";
+
+        FileUtils.write("test", path, false);
+
+        assertDoesNotThrow(() -> {
+            FileUtils.write("test", path, true);
+        });
+
+        assertEquals("testtest", FileUtils.read(path));
+    }
 }

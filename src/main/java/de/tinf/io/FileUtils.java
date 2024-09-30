@@ -33,10 +33,11 @@ public class FileUtils {
      * @param append  whether the content should be appended to the file
      * @throws RuntimeException if an I/O error occurs writing to the file
      */
-    public static void write(String content, String path, boolean append)
-            throws IOException {
+    public static void write(String content, String path, boolean append) {
         try {
-            createFile(path);
+            if (!exists(path)) {
+                createFile(path);
+            }
 
             if (append) {
                 Files.writeString(Path.of(path), content, StandardOpenOption.APPEND);
