@@ -139,4 +139,37 @@ class FileUtilsTest {
 
         assertEquals("testtest", FileUtils.read(path));
     }
+
+    @Test
+    void testReadLines() {
+        String path = "target/test-classes/file.txt";
+        String[] expectedLines = {"This is the content of the file."};
+
+        String[] actualLines = FileUtils.readLines(path);
+
+        assertArrayEquals(expectedLines, actualLines);
+    }
+
+    @Test
+    void testReadLinesWithMultipleLines() {
+        String path = "target/test-classes/multilineFile.txt";
+        String[] expectedLines = {
+            "This is the first line.",
+            "This is the second line.",
+            "This is the third line."
+        };
+
+        String[] actualLines = FileUtils.readLines(path);
+
+        assertArrayEquals(expectedLines, actualLines);
+    }
+
+    @Test
+    void testReadLinesWithException() {
+        String path = "path/to/nonexistent/file.txt";
+
+        assertThrows(RuntimeException.class, () -> {
+            FileUtils.readLines(path);
+        });
+    }
 }
