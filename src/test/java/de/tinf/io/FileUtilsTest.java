@@ -126,4 +126,50 @@ class FileUtilsTest {
             FileUtils.delete(path);
         });
     }
+
+    @Test
+    void testAppendWriteFile() {
+        String path = "temp/appendFile.txt";
+
+        FileUtils.write("test", path, false);
+
+        assertDoesNotThrow(() -> {
+            FileUtils.write("test", path, true);
+        });
+
+        assertEquals("testtest", FileUtils.read(path));
+    }
+
+    @Test
+    void testReadLines() {
+        String path = "target/test-classes/file.txt";
+        String[] expectedLines = {"This is the content of the file."};
+
+        String[] actualLines = FileUtils.readLines(path);
+
+        assertArrayEquals(expectedLines, actualLines);
+    }
+
+    @Test
+    void testReadLinesWithMultipleLines() {
+        String path = "target/test-classes/multilineFile.txt";
+        String[] expectedLines = {
+            "This is the first line.",
+            "This is the second line.",
+            "This is the third line."
+        };
+
+        String[] actualLines = FileUtils.readLines(path);
+
+        assertArrayEquals(expectedLines, actualLines);
+    }
+
+    @Test
+    void testReadLinesWithException() {
+        String path = "path/to/nonexistent/file.txt";
+
+        assertThrows(RuntimeException.class, () -> {
+            FileUtils.readLines(path);
+        });
+    }
 }

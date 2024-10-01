@@ -1,5 +1,6 @@
 package de.tinf.collections;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -689,34 +690,82 @@ public class ArrayUtils {
         return concatenated;
     }
 
+    /**
+     * Reverses the order of elements in the array.
+     *
+     * @param array the array to reverse
+     * @return the reversed array
+     */
     public static byte[] reverse(byte[] array) {
         return toPrimitiveArray(reverse(toObjectArray(array)));
     }
 
+    /**
+     * Reverses the order of elements in the array.
+     *
+     * @param array the array to reverse
+     * @return the reversed array
+     */
     public static short[] reverse(short[] array) {
         return toPrimitiveArray(reverse(toObjectArray(array)));
     }
 
+    /**
+     * Reverses the order of elements in the array.
+     *
+     * @param array the array to reverse
+     * @return the reversed array
+     */
     public static int[] reverse(int[] array) {
         return toPrimitiveArray(reverse(toObjectArray(array)));
     }
 
+    /**
+     * Reverses the order of elements in the array.
+     *
+     * @param array the array to reverse
+     * @return the reversed array
+     */
     public static long[] reverse(long[] array) {
         return toPrimitiveArray(reverse(toObjectArray(array)));
     }
 
+    /**
+     * Reverses the order of elements in the array.
+     *
+     * @param array the array to reverse
+     * @return the reversed array
+     */
     public static float[] reverse(float[] array) {
         return toPrimitiveArray(reverse(toObjectArray(array)));
     }
 
+    /**
+     * Reverses the order of elements in the array.
+     *
+     * @param array the array to reverse
+     * @return the reversed array
+     */
     public static double[] reverse(double[] array) {
         return toPrimitiveArray(reverse(toObjectArray(array)));
     }
 
+    /**
+     * Reverses the order of elements in the array.
+     *
+     * @param array the array to reverse
+     * @return the reversed array
+     */
     public static char[] reverse(char[] array) {
         return toPrimitiveArray(reverse(toObjectArray(array)));
     }
 
+    /**
+     * Reverses the order of elements in the array.
+     *
+     * @param array the array to reverse
+     * @return the reversed array
+     */
     public static boolean[] reverse(boolean[] array) {
         return toPrimitiveArray(reverse(toObjectArray(array)));
     }
@@ -738,5 +787,109 @@ public class ArrayUtils {
         }
 
         return reversed;
+    }
+
+    public static boolean contains(byte[] array, byte element) {
+        return contains(toObjectArray(array), element);
+    }
+
+    /**
+     * Checks if the specified array contains the given element.
+     *
+     * @param array   the array to be checked for the presence of the element
+     * @param element the element to be checked for in the array
+     * @return {@code true} if the array contains the specified element,
+     *         {@code false} otherwise
+     */
+    public static boolean contains(short[] array, short element) {
+        return contains(toObjectArray(array), element);
+    }
+
+    /**
+     * Checks if the specified array contains the given element.
+     *
+     * @param array   the array to be checked for the presence of the element
+     * @param element the element to be checked for in the array
+     * @return {@code true} if the array contains the specified element,
+     *         {@code false} otherwise
+     */
+    public static boolean contains(int[] array, int element) {
+        return contains(toObjectArray(array), element);
+    }
+
+    /**
+     * Checks if the specified array contains the given element.
+     *
+     * @param array   the array to be checked for the presence of the element
+     * @param element the element to be checked for in the array
+     * @return {@code true} if the array contains the specified element,
+     *         {@code false} otherwise
+     */
+    public static boolean contains(long[] array, long element) {
+        return contains(toObjectArray(array), element);
+    }
+
+    /**
+     * Checks if the specified array contains the given element.
+     *
+     * @param array   the array to be checked for the presence of the element
+     * @param element the element to be checked for in the array
+     * @return {@code true} if the array contains the specified element,
+     *         {@code false} otherwise
+     */
+    public static boolean contains(float[] array, float element) {
+        return contains(toObjectArray(array), element);
+    }
+
+    /**
+     * Checks if the specified array contains the given element.
+     *
+     * @param array   the array to be checked for the presence of the element
+     * @param element the element to be checked for in the array
+     * @return {@code true} if the array contains the specified element,
+     *         {@code false} otherwise
+     */
+    public static boolean contains(double[] array, double element) {
+        return contains(toObjectArray(array), element);
+    }
+
+    /**
+     * Checks if the specified array contains the given element.
+     *
+     * @param array   the array to be checked for the presence of the element
+     * @param element the element to be checked for in the array
+     * @return {@code true} if the array contains the specified element,
+     *         {@code false} otherwise
+     */
+    public static boolean contains(char[] array, char element) {
+        return contains(toObjectArray(array), element);
+    }
+
+    /**
+     * Checks if the specified array contains the given element.
+     *
+     * @param array   the array to be checked for the presence of the element
+     * @param element the element to be checked for in the array
+     * @return {@code true} if the array contains the specified element,
+     *         {@code false} otherwise
+     */
+    public static boolean contains(boolean[] array, boolean element) {
+        return contains(toObjectArray(array), element);
+    }
+
+    /**
+     * Checks if the specified array contains the given element.
+     *
+     * @param array   the array to be checked for the presence of the element
+     * @param element the element to be checked for in the array
+     * @return {@code true} if the array contains the specified element,
+     *         {@code false} otherwise
+     */
+    public static <T> boolean contains(T[] array, T element) {
+        if (element == null) {
+            return false;
+        }
+
+        return Arrays.stream(array).anyMatch(element::equals);
     }
 }

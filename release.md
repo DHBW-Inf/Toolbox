@@ -1,3 +1,4 @@
+
 # Release Notes 
 
 > Release Date: Sept 29, 2024
@@ -12,3 +13,7 @@
 | `Counter`           | Demonstrates synchronized counter operations.         | N/A                      |
 | `CounterThread`     | Increments a shared `Counter` instance in parallel.   | Extends `Thread`         |
 | `MyCallable`        | Demonstrates `Callable` by returning a calculated value. | Implements `Callable<Integer>` |
+=======
+# Contains function
+
+This update adds a function `contains` that checks wether an element is present in an array.´

@@ -1,7 +1,9 @@
 package de.tinf.collections;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -264,5 +266,33 @@ public class ArrayUtilsTest {
         expected = new Boolean[0];
         result = ArrayUtils.toObjectArray(array);
         assertArrayEquals(expected, result);
+    }
+
+    @Test
+    void testContains() {
+        Integer[] array = { 1, 2, 3 };
+        boolean result = ArrayUtils.contains(array, 2);
+        assertTrue(result);
+
+        result = ArrayUtils.contains(array, 4);
+        assertFalse(result);
+
+        String[] stringArray = { "a", "b", "c" };
+        result = ArrayUtils.contains(stringArray, "b");
+        assertTrue(result);
+
+        result = ArrayUtils.contains(stringArray, "d");
+        assertFalse(result);
+
+        Boolean[] booleanArray = { true, false, true };
+        result = ArrayUtils.contains(booleanArray, false);
+        assertTrue(result);
+
+        result = ArrayUtils.contains(booleanArray, null);
+        assertFalse(result);
+
+        Integer[] emptyArray = {};
+        result = ArrayUtils.contains(emptyArray, 1);
+        assertFalse(result);
     }
 }
