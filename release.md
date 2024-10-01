@@ -1,3 +1,3 @@
-# Primitive type support to console utilities
+# Contains function
 
-This update adds support for primitive types to the console utilities.
+This update adds a function `contains` that checks wether an element is present in an array.
