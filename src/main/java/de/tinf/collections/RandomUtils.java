@@ -1,11 +1,12 @@
 package de.tinf.collections;
 
 import java.awt.Color;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class RandomUtils {
+
+    public static Random RANDOM = new Random();
 
     /**
      * Generate a random Integer from 0 to a desired Number
@@ -14,9 +15,8 @@ public class RandomUtils {
      * @return Random integer from 0 to maxNumber inclusive.
      */
     public static int getRandomIntFromZero(int maxValue){
-        Random random = new Random();
         // nextInt is exclusive of the top value, so add 1 to make it inclusive
-        return random.nextInt(maxValue+1);
+        return RANDOM.nextInt(maxValue+1);
     }
 
     /**
@@ -27,8 +27,7 @@ public class RandomUtils {
      * @return Random integer from min to max inclusive.
      */
     public static int getRandomInteger(int minValue, int maxValue){
-        Random random = new Random();
-        return random.nextInt((maxValue - minValue) + 1) + minValue;
+        return RANDOM.nextInt((maxValue - minValue) + 1) + minValue;
     }
 
     /**
@@ -39,13 +38,11 @@ public class RandomUtils {
      * @return Random double from 0 to maxValue.
      */
     public static double getRandomDoubleFromZero(double maxValue){
-        Random random = new Random();
-        return random.nextDouble(maxValue);
+        return RANDOM.nextDouble(maxValue);
     }
 
     public static double getRandomDouble(double minValue, double maxValue){
-        Random random = new Random();
-        return random.nextDouble(minValue, maxValue);
+        return RANDOM.nextDouble(minValue, maxValue);
     }
 
     /**
@@ -56,8 +53,7 @@ public class RandomUtils {
      * @return Random long from 0 to maxValue.
      */
     public static long getRandomLongFromZero(long maxValue) {
-        Random random = new Random();
-        return random.nextLong(maxValue);
+        return RANDOM.nextLong(maxValue);
     }
 
 
@@ -70,8 +66,7 @@ public class RandomUtils {
      * @return Random long from minValue to maxValue.
      */
     public static long getRandomLong(long minValue, long maxValue) {
-        Random random = new Random();
-        return random.nextLong(minValue, maxValue);
+        return RANDOM.nextLong(minValue, maxValue);
     }
 
     /**
@@ -81,8 +76,7 @@ public class RandomUtils {
      * @return Random float from
      */
     public static float getRandomFloatFromZero(float maxValue){
-        Random random = new Random();
-        return random.nextFloat(maxValue);
+        return RANDOM.nextFloat(maxValue);
     }
 
     /**
@@ -93,8 +87,7 @@ public class RandomUtils {
      * @return Random float from minValue to maxValue.
      */
     public static float getRandomFloat(float minValue, float maxValue) {
-        Random random = new Random();
-        return random.nextFloat(minValue, maxValue);
+        return RANDOM.nextFloat(minValue, maxValue);
     }
 
     /**
@@ -104,8 +97,7 @@ public class RandomUtils {
      * @return The picked object
      */
     public static Object pickRandomObjectFromList(List list){
-        Random random = new Random();
-        return list.get(random.nextInt(list.size()));
+        return list.get(RANDOM.nextInt(list.size()));
     }
 
     /**
@@ -114,11 +106,9 @@ public class RandomUtils {
      */
     public static Color getRandomColor() {
 
-        Random random = new Random();
-
-        int red = random.nextInt(256);
-        int green = random.nextInt(256);
-        int blue = random.nextInt(256);
+        int red = RANDOM.nextInt(256);
+        int green = RANDOM.nextInt(256);
+        int blue = RANDOM.nextInt(256);
 
 
         return new Color(red, green, blue);
