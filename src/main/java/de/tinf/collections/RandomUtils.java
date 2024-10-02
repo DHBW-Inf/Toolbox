@@ -15,7 +15,7 @@ public class RandomUtils {
     /**
      * Generate a random Integer from 0 to a desired Number
      *
-     * @param maxValue Upper bound of desired Number
+     * @param maxValue Upper bound (included) of desired Number
      * @return Random integer from 0 to maxNumber inclusive.
      */
     public static int getRandomIntFromZero(int maxValue){
@@ -26,8 +26,8 @@ public class RandomUtils {
     /**
      * Generate a random Integer from min to max
      *
-     * @param minValue Lower bound of desired Number
-     * @param maxValue Upper bound of desired Number
+     * @param minValue Lower bound (included) of desired Number
+     * @param maxValue Upper bound (included) of desired Number
      * @return Random integer from min to max inclusive.
      */
     public static int getRandomInteger(int minValue, int maxValue){
@@ -35,7 +35,7 @@ public class RandomUtils {
     }
 
     /**
-     * Gernerate a random double between 0 and maxValue.
+     * Generate a random double between 0 and maxValue.
      * In this case the maxValue is excluded.
      *
      * @param maxValue Max value of the random double.
