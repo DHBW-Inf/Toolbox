@@ -1,3 +1,3 @@
-# Contains function
-
-This update adds a function `contains` that checks wether an element is present in an array.
+# Added RandomUtils
+This update added RandomUtils which makes generating numbers and colors easy.
+Furthermore a random list picker has been added.
