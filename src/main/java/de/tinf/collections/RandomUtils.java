@@ -98,7 +98,7 @@ public class RandomUtils {
     }
 
     /**
-     * Pick a random object from a list.
+     * Pick a random object from a list. You might have to cast to the right Datatype
      *
      * @param list The List of which an object is to be picked.
      * @return The picked object
@@ -109,22 +109,10 @@ public class RandomUtils {
     }
 
     /**
-     * Pick a random object from an ArrayList.
-     *
-     * @param list The ArrayList of which an object is to be picked.
-     * @return The picked object
-     */
-    public static Object pickRandomObjectFromArrayList(ArrayList list){
-        Random random = new Random();
-        return list.get(random.nextInt(list.size()));
-    }
-
-
-    /**
      * Get a random Color
      * @return random Color
      */
-    private Color getRandomColor() {
+    public static Color getRandomColor() {
 
         Random random = new Random();
 
