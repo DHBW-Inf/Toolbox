@@ -6,7 +6,11 @@ import java.util.Random;
 
 public class RandomUtils {
 
-    public static Random RANDOM = new Random();
+    private static final Random RANDOM = new Random();
+
+    public static Random getRandom(){
+        return RANDOM;
+    }
 
     /**
      * Generate a random Integer from 0 to a desired Number
