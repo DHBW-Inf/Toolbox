@@ -1,3 +1,3 @@
-# Contains function
+# Fix relative path issue
 
-This update adds a function `contains` that checks wether an element is present in an array.
+Fix`createFile` of file utils not working with files without path.

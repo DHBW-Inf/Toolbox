@@ -90,7 +90,7 @@ public class FileUtils {
                 return;
             }
 
-            Path file = Path.of(path);
+            Path file = Path.of(path).toAbsolutePath();
             Files.createDirectories(file.getParent());
             Files.createFile(file);
         } catch (IOException e) {
