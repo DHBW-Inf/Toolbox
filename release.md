@@ -1,3 +1,3 @@
-# Fix relative path issue
+# Add appendLine function
 
-Fix`createFile` of file utils not working with files without path.
+This update adds a function `appendLine` that appends the given string to a specified file.
