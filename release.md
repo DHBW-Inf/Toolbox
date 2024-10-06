@@ -1,3 +1,3 @@
-# Fix relative path issue
+# Add find function
 
-Fix`createFile` of file utils not working with files without path.
+This update adds the function `find` that searches an array of object with a predicate function and returns the first match.
