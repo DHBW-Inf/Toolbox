@@ -124,4 +124,15 @@ public class FileUtils {
         }
 
     }
+
+    /**
+     * Appends a line of text to the specified file.
+     *
+     * @param line the line of text to append
+     * @param path the path to the file where the line should be appended
+     */
+    public static void appendLine(String line, String path) {
+        line += "\n";
+        write(line, path, true);
+    }
 }

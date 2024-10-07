@@ -1,3 +1,3 @@
-# Add find function
+# Add appendLine function
 
-This update adds the function `find` that searches an array of object with a predicate function and returns the first match.
+This update adds a function `appendLine` that appends the given string to a specified file.
