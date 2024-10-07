@@ -1,3 +1,3 @@
-# Add appendLine function
-
-This update adds a function `appendLine` that appends the given string to a specified file.
+# Added RandomUtils
+This update added RandomUtils which makes generating numbers and colors easy.
+Furthermore a random list picker has been added.
