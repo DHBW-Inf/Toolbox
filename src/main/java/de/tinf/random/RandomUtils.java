@@ -20,7 +20,8 @@ public class RandomUtils {
     }
 
     /**
-     * Generates a random integer between 0 (inclusive) and the specified maxValue (inclusive).
+     * Generates a random integer between 0 (inclusive) and the specified maxValue
+     * (inclusive).
      *
      * @param maxValue the maximum value (inclusive) for the random integer
      * @return a random integer between 0 and maxValue (inclusive)
@@ -35,7 +36,8 @@ public class RandomUtils {
      *
      * @param minValue the minimum value of the range (inclusive)
      * @param maxValue the maximum value of the range (inclusive)
-     * @return a random integer between minValue (inclusive) and maxValue (inclusive)
+     * @return a random integer between minValue (inclusive) and maxValue
+     *         (inclusive)
      */
     public static int getRandomInt(int minValue, int maxValue) {
         return RANDOM.nextInt((maxValue - minValue) + 1) + minValue;
@@ -63,7 +65,8 @@ public class RandomUtils {
     }
 
     /**
-     * Generates a random long value between 0 (inclusive) and the specified maximum value (inclusive).
+     * Generates a random long value between 0 (inclusive) and the specified maximum
+     * value (inclusive).
      *
      * @param maxValue the maximum value (inclusive) for the generated random long.
      * @return a random long value between 0 (inclusive) and maxValue (inclusive).
@@ -73,11 +76,13 @@ public class RandomUtils {
     }
 
     /**
-     * Generates a random long value between the specified minimum (inclusive) and maximum (inclusive) values.
+     * Generates a random long value between the specified minimum (inclusive) and
+     * maximum (inclusive) values.
      *
      * @param minValue the minimum value (inclusive)
      * @param maxValue the maximum value (inclusive)
-     * @return a random long value between minValue (inclusive) and maxValue (inclusive)
+     * @return a random long value between minValue (inclusive) and maxValue
+     *         (inclusive)
      */
     public static long getRandomLong(long minValue, long maxValue) {
         return RANDOM.nextLong(minValue, maxValue + 1);
@@ -94,7 +99,8 @@ public class RandomUtils {
     }
 
     /**
-     * Generates a random float value between the specified minimum and maximum values.
+     * Generates a random float value between the specified minimum and maximum
+     * values.
      *
      * @param minValue the minimum value
      * @param maxValue the maximum value
@@ -107,7 +113,7 @@ public class RandomUtils {
     /**
      * Selects a random element from the provided list.
      *
-     * @param <T> the type of elements in the list
+     * @param <T>  the type of elements in the list
      * @param list the list from which to pick a random element
      * @return a randomly selected element from the list
      * @throws IllegalArgumentException if the list is empty
@@ -119,8 +125,8 @@ public class RandomUtils {
     /**
      * Selects a number random element from the provided list.
      *
-     * @param <T> the type of elements in the list
-     * @param list the list from which to pick the random elements
+     * @param <T>   the type of elements in the list
+     * @param list  the list from which to pick the random elements
      * @param count the number of elements to select
      * @return a list containing the randomly selected items
      */
@@ -138,7 +144,7 @@ public class RandomUtils {
     /**
      * Picks a random constant from the specified enum class.
      *
-     * @param <T> the type of the enum
+     * @param <T>       the type of the enum
      * @param enumClass the class of the enum from which to pick a random constant
      * @return a randomly selected constant from the specified enum class
      */
@@ -149,27 +155,71 @@ public class RandomUtils {
     /**
      * Picks a specified number of random elements from the given enum class.
      *
-     * @param <T> the type of the enum
+     * @param <T>       the type of the enum
      * @param enumClass the class of the enum from which to pick random elements
-     * @param count the number of random elements to pick
+     * @param count     the number of random elements to pick
      * @return a list of randomly picked elements from the enum
      */
     public static <T extends Enum<T>> List<T> pickRandom(Class<T> enumClass, int count) {
         return pickRandom(Arrays.asList(enumClass.getEnumConstants()), count);
     }
 
+
     /**
-     * Get a random Color
+     * Generates a random color.
      * 
-     * @return random Color
+     * @return A random {@link Color} object.
      */
     public static Color getRandomColor() {
+        return getRandomColor(255);
+    }
 
-        int red = RANDOM.nextInt(256);
-        int green = RANDOM.nextInt(256);
-        int blue = RANDOM.nextInt(256);
+    /**
+     * Generates a random color with each RGB component constrained between the specified minimum and maximum values.
+     *
+     * @param min the minimum value for each RGB component (inclusive)
+     * @param max the maximum value for each RGB component (inclusive)
+     * @return a random {@link Color} object with RGB values within the specified range
+     */
+    public static Color getRandomColor(int min, int max) {
+        return getRandomColor(min, max, min, max, min, max);
+    }
 
-        return new Color(red, green, blue);
+    /**
+     * Generates a random color with the specified maximum RGB values.
+     *
+     * @param max the maximum (inclusive) value for the red, green, and blue components of the color.
+     * @return a random {@link Color} object with RGB values up to the specified maximum.
+     */
+    public static Color getRandomColor(int max) {
+        return getRandomColor(max, max, max);
+    }
+
+    /**
+     * Generates a random color with RGB values within the specified ranges.
+     *
+     * @param rMin the minimum value for the red component (inclusive)
+     * @param rMax the maximum value for the red component (inclusive)
+     * @param gMin the minimum value for the green component (inclusive)
+     * @param gMax the maximum value for the green component (inclusive)
+     * @param bMin the minimum value for the blue component (inclusive)
+     * @param bMax the maximum value for the blue component (inclusive)
+     * @return a Color object with random RGB values within the specified ranges
+     */
+    public static Color getRandomColor(int rMin, int rMax, int gMin, int gMax, int bMin, int bMax) {
+        return new Color(getRandomInt(rMin, rMax), getRandomInt(gMin, gMax), getRandomInt(bMin, bMax));
+    }
+
+    /**
+     * Generates a random color with the specified maximum values for the red, green, and blue components.
+     *
+     * @param rMax the maximum value for the red component (0 to 255)
+     * @param gMax the maximum value for the green component (0 to 255)
+     * @param bMax the maximum value for the blue component (0 to 255)
+     * @return a random {@link Color} object with the specified maximum RGB values
+     */
+    public static Color getRandomColor(int rMax, int gMax, int bMax) {
+        return getRandomColor(0, rMax, 0, gMax, 0, bMax);
     }
 
 }

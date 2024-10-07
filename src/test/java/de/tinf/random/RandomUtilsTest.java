@@ -209,6 +209,154 @@ public class RandomUtilsTest {
         assertTrue(randomElements.isEmpty());
     }
 
+    @Test
+    void testGetRandomColor() {
+        Color color = RandomUtils.getRandomColor();
+        int r = color.getRed();
+        int g = color.getGreen();
+        int b = color.getBlue();
+
+        assertTrue(r >= 0 && r <= 255, "Red component out of range: " + r);
+        assertTrue(g >= 0 && g <= 255, "Green component out of range: " + g);
+        assertTrue(b >= 0 && b <= 255, "Blue component out of range: " + b);
+    }
+
+    @Test
+    void testGetRandomColorWithMinMax() {
+        int min = 50;
+        int max = 200;
+
+        Color color = RandomUtils.getRandomColor(min, max);
+        int r = color.getRed();
+        int g = color.getGreen();
+        int b = color.getBlue();
+
+        assertTrue(r >= min && r <= max, "Red component out of range: " + r);
+        assertTrue(g >= min && g <= max, "Green component out of range: " + g);
+        assertTrue(b >= min && b <= max, "Blue component out of range: " + b);
+    }
+
+    @Test
+    void testGetRandomColorWithMinMaxEdgeCases() {
+        int min = 0;
+        int max = 255;
+
+        Color color = RandomUtils.getRandomColor(min, max);
+        int r = color.getRed();
+        int g = color.getGreen();
+        int b = color.getBlue();
+
+        assertTrue(r >= min && r <= max, "Red component out of range: " + r);
+        assertTrue(g >= min && g <= max, "Green component out of range: " + g);
+        assertTrue(b >= min && b <= max, "Blue component out of range: " + b);
+    }
+
+    @Test
+    void testGetRandomColorWithInvalidRange() {
+        int min = 200;
+        int max = 50;
+
+        assertThrows(IllegalArgumentException.class, () -> RandomUtils.getRandomColor(min, max));
+    }
+
+    @Test
+    void testGetRandomColorWithSpecificRanges() {
+        int rMin = 10;
+        int rMax = 100;
+        int gMin = 20;
+        int gMax = 150;
+        int bMin = 30;
+        int bMax = 200;
+
+        Color color = RandomUtils.getRandomColor(rMin, rMax, gMin, gMax, bMin, bMax);
+        int r = color.getRed();
+        int g = color.getGreen();
+        int b = color.getBlue();
+
+        assertTrue(r >= rMin && r <= rMax, "Red component out of range: " + r);
+        assertTrue(g >= gMin && g <= gMax, "Green component out of range: " + g);
+        assertTrue(b >= bMin && b <= bMax, "Blue component out of range: " + b);
+    }
+
+    @Test
+    void testGetRandomColorWithEdgeCases() {
+        int rMin = 0;
+        int rMax = 255;
+        int gMin = 0;
+        int gMax = 255;
+        int bMin = 0;
+        int bMax = 255;
+
+        Color color = RandomUtils.getRandomColor(rMin, rMax, gMin, gMax, bMin, bMax);
+        int r = color.getRed();
+        int g = color.getGreen();
+        int b = color.getBlue();
+
+        assertTrue(r >= rMin && r <= rMax, "Red component out of range: " + r);
+        assertTrue(g >= gMin && g <= gMax, "Green component out of range: " + g);
+        assertTrue(b >= bMin && b <= bMax, "Blue component out of range: " + b);
+    }
+
+    @Test
+    void testGetRandomColorWithInvalidRanges() {
+        int rMin = 100;
+        int rMax = 50;
+        int gMin = 150;
+        int gMax = 100;
+        int bMin = 200;
+        int bMax = 150;
+
+        assertThrows(IllegalArgumentException.class, () -> RandomUtils.getRandomColor(rMin, rMax, gMin, gMax, bMin, bMax));
+    }
+
+    @Test
+    void testGetRandomColorWithMaxValues() {
+        int rMax = 100;
+        int gMax = 150;
+        int bMax = 200;
+
+        Color color = RandomUtils.getRandomColor(rMax, gMax, bMax);
+        int r = color.getRed();
+        int g = color.getGreen();
+        int b = color.getBlue();
+
+        assertTrue(r >= 0 && r <= rMax, "Red component out of range: " + r);
+        assertTrue(g >= 0 && g <= gMax, "Green component out of range: " + g);
+        assertTrue(b >= 0 && b <= bMax, "Blue component out of range: " + b);
+    }
+
+    @Test
+    void testGetRandomColorWithMaxValuesEdgeCases() {
+        int rMax = 255;
+        int gMax = 255;
+        int bMax = 255;
+
+        Color color = RandomUtils.getRandomColor(rMax, gMax, bMax);
+        int r = color.getRed();
+        int g = color.getGreen();
+        int b = color.getBlue();
+
+        assertTrue(r >= 0 && r <= rMax, "Red component out of range: " + r);
+        assertTrue(g >= 0 && g <= gMax, "Green component out of range: " + g);
+        assertTrue(b >= 0 && b <= bMax, "Blue component out of range: " + b);
+    }
+
+    @Test
+    void testGetRandomColorWithMaxValuesZero() {
+        int rMax = 0;
+        int gMax = 0;
+        int bMax = 0;
+
+        Color color = RandomUtils.getRandomColor(rMax, gMax, bMax);
+        int r = color.getRed();
+        int g = color.getGreen();
+        int b = color.getBlue();
+
+        assertEquals(0, r, "Red component should be 0");
+        assertEquals(0, g, "Green component should be 0");
+        assertEquals(0, b, "Blue component should be 0");
+    }
+
     private enum TestEnum {
         VALUE1, VALUE2, VALUE3;
 
