@@ -172,4 +172,23 @@ class FileUtilsTest {
             FileUtils.readLines(path);
         });
     }
+
+    @Test
+    void testAppendLineToFile() {
+        String path = "temp/appendLineFile.txt";
+        String line1 = "First line";
+        String line2 = "Second line";
+
+        assertDoesNotThrow(() -> {
+            FileUtils.appendLine(line1, path);
+        });
+
+        assertEquals(line1 + "\n", FileUtils.read(path));
+
+        assertDoesNotThrow(() -> {
+            FileUtils.appendLine(line2, path);
+        });
+
+        assertEquals(line1 + "\n" + line2 + "\n", FileUtils.read(path));
+    }
 }

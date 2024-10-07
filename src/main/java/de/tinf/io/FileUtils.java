@@ -90,7 +90,7 @@ public class FileUtils {
                 return;
             }
 
-            Path file = Path.of(path);
+            Path file = Path.of(path).toAbsolutePath();
             Files.createDirectories(file.getParent());
             Files.createFile(file);
         } catch (IOException e) {
@@ -123,5 +123,16 @@ public class FileUtils {
             throw new RuntimeException(e);
         }
 
+    }
+
+    /**
+     * Appends a line of text to the specified file.
+     *
+     * @param line the line of text to append
+     * @param path the path to the file where the line should be appended
+     */
+    public static void appendLine(String line, String path) {
+        line += "\n";
+        write(line, path, true);
     }
 }
