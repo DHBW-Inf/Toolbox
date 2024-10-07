@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
 
@@ -294,5 +295,35 @@ public class ArrayUtilsTest {
         Integer[] emptyArray = {};
         result = ArrayUtils.contains(emptyArray, 1);
         assertFalse(result);
+    }
+
+    @Test
+    void testFind() {
+        Integer[] array = { 1, 2, 3, 4, 5 };
+
+        // Test finding an element that exists
+        Predicate<Integer> predicate = x -> x == 3;
+        Integer result = ArrayUtils.find(array, predicate);
+        assertTrue(result != null && result == 3);
+
+        // Test finding an element that does not exist
+        predicate = x -> x == 6;
+        result = ArrayUtils.find(array, predicate);
+        assertTrue(result == null);
+
+        // Test finding an element in an empty array
+        Integer[] emptyArray = {};
+        predicate = x -> x == 1;
+        result = ArrayUtils.find(emptyArray, predicate);
+        assertTrue(result == null);
+
+        // Test finding an element with a complex predicate
+        predicate = x -> x > 3 && x % 2 == 0;
+        result = ArrayUtils.find(array, predicate);
+        assertTrue(result != null && result == 4);
+
+        // Test finding an element with null predicate
+        assertThrowsExactly(NullPointerException.class, () -> ArrayUtils.find(array, null),
+                "Should throw a NullPointerException.");
     }
 }
