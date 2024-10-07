@@ -126,7 +126,7 @@ public class RandomUtils {
      */
     public static <T> List<T> pickRandom(List<T> list, int count) {
         List<T> copy = new ArrayList<T>(list);
-        List<T> result = new ArrayList<T>(list);
+        List<T> result = new ArrayList<T>();
 
         for (int i = 0; i < count && !copy.isEmpty(); i++) {
             result.add(copy.remove(RANDOM.nextInt(copy.size())));
