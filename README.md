@@ -11,15 +11,13 @@
 - [x] *`FileUtils`*: Utilities for reading and writing files.
 - [x] *`ArrayUtils`*: Utilities for working with arrays.
 - [x] *`ConsoleUtils`*: Utilities for printing and reading to and from the console.
-- [ ] *`AsyncUtils`*: Utilities for working in an asynchronous context.
-- [ ] *`SwingUtils`*: Pre made components and utilities for working with swing.
+- [x] *`RandomUtils`*: Utilities for getting random numbers and objects.
 
 ## How to use the utilities
 
 Every release contains a zip file with the source code. To use the utils just copy the source code into your exam project.
 
-All utils are dependency free.  
-All utils are dependency free.  
+All utils are dependency free.
 
 ## How to contribute
 
