@@ -2,6 +2,7 @@ package de.tinf.collections;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.function.Predicate;
 
 /**
  * The ArrayUtils class provides utility methods for manipulating arrays.
@@ -891,5 +892,22 @@ public class ArrayUtils {
         }
 
         return Arrays.stream(array).anyMatch(element::equals);
+    }
+
+    /**
+     * Finds the first element in the given array that matches the specified predicate.
+     *
+     * @param <T> the type of elements in the array
+     * @param array the array to search through
+     * @param predicate the predicate to apply to each element to determine if it matches
+     * @return the first element that matches the predicate, or {@code null} if no such element is found
+     */
+    public static <T> T find(T[] array, Predicate<T> predicate) {
+        var result = Arrays.stream(array).filter(predicate).findFirst();
+        if (result.isPresent()) {
+            return result.get();
+        } else {
+            return null;
+        }
     }
 }
