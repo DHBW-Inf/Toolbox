@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"de.tinf.collections"},{"l":"de.tinf.io"},{"l":"de.tinf.random"},{"l":"de.tinf.typeExtension"}];updateSearchResults();
